@@ -151,7 +151,19 @@ const AKalish = (props) => {
         }`,
       },
     })
-      .then((rsp) => rsp.json())
+      .then((rsp) => {
+        if (rsp.ok) {
+          return rsp.json();
+        } else {
+          setLoading(false);
+          rsp.json().then((data) => {
+            const errMsg = [];
+            Object.keys(data).forEach((k) => errMsg.push(`${k}:\n${data[k]}`));
+            const errTxt = errMsg.join("\n *** \n");
+            toastr.error(errTxt, "Error");
+          });
+        }
+      })
       .then((data) => {
         setEditProductData(data);
         console.log(data);
@@ -197,8 +209,8 @@ const AKalish = (props) => {
       <div className="page-content">
         <Container fluid={true}>
           <Breadcrumbs
-            title="AKalish New Page"
-            breadcrumbItem={"AKalish New Page"}
+            title={`${props.edit ? "Edit" : "Add"} Products`}
+            breadcrumbItem={"Product Manager"}
           />
           <Row>
             <Col>

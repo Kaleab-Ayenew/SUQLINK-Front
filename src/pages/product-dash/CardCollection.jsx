@@ -2,38 +2,20 @@ import React from "react";
 import { Container, Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 
 function RevenueCard(props) {
-  const reports = [
-    {
-      title: "Revenue",
-      description: "ETB 50000.00",
-      iconClass: "bx bx-euro",
-    },
-    {
-      title: "Revenue",
-      description: "ETB 50000.00",
-      iconClass: "bx bx-euro",
-    },
-    {
-      title: "Revenue",
-      description: "ETB 50000.00",
-      iconClass: "bx bx-euro",
-    },
-  ];
-
   const data = [
     {
-      title: "Past Hour Revenue",
-      description: `ETB ${props.cardData.total_sales}.00`,
+      title: `Past ${props.graphPeriod} Revenue`,
+      description: `ETB ${props.cardData.total_sales}.00` || "0",
       iconClass: "bx bx-euro",
     },
     {
-      title: "Past Hour Orders",
-      description: props.cardData.total_orders,
+      title: `Past ${props.graphPeriod} Orders`,
+      description: props.cardData.total_orders || "0",
       iconClass: "bx bx-euro",
     },
     {
       title: "All Orders",
-      description: props.cardData.all_orders,
+      description: props.cardData.all_orders || "0",
       iconClass: "bx bx-euro",
     },
   ];

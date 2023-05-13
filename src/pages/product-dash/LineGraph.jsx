@@ -5,16 +5,60 @@ import getChartColorsArray from "../../components/Common/ChartsDynamicColor";
 const Line = ({ dataColors, orderData, graphPeriod }) => {
   const lineEChartColors = getChartColorsArray(dataColors);
   const now = new Date();
-  const to_period = graphPeriod === "all" ? 59 : now.getMinutes();
-  let source_data = [["Minutes", "Orders"]];
+
+  const graphPeriodMap = {
+    hour: now.getMinutes(),
+    day: now.getHours(),
+    week: now.getDate(),
+    month: now.getDate(),
+    year: now.getMonth(),
+  };
+
+  function getTime(order, t) {
+    const otime = new Date(order.order_time);
+    console.log(otime, "This is the time");
+    switch (t) {
+      case "hour":
+        return [otime.getMinutes(), otime.getHours()];
+      case "day":
+        return [otime.getHours(), otime.getDate()];
+      case "month":
+        return [otime.getDate(), otime.getMonth()];
+      case "year":
+        return [otime.getMonth(), otime.getYear()];
+    }
+  }
+
+  const valueMap = {
+    year: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
+  };
+
+  const to_period = graphPeriodMap[graphPeriod];
+  let source_data = [["Time", "Orders"]];
   for (let i = 0; i <= to_period; i++) {
     const s = orderData.filter((o) => {
-      const o_time = new Date(o.order_time);
-      console.log("This is from Line:", o_time.getMinutes());
-      return o_time.getMinutes() === i;
+      const o_time = getTime(o, graphPeriod);
+      return o_time[0] === i;
     });
-    source_data.push([`${now.getHours()}:${i}`, s.length]);
+    source_data.push([
+      `${graphPeriod === "year" ? valueMap["year"][i] : i}`,
+      s.length,
+    ]);
   }
+
   const options = {
     tooltip: {
       trigger: "axis",

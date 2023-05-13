@@ -14,23 +14,37 @@ import {
 import { PaymentStatus } from "./BillingStuff";
 
 function TableComp(props) {
-  const data = props.orderData;
+  const ordata = props.orderData;
+  const data = ordata.map((o) => {
+    const t = new Date(o.order_time);
+    const newObj = { ...o, order_time: t.toLocaleDateString() };
+    return newObj;
+  });
+  function formatTitle(t) {
+    var newStr = t
+      .split("_")
+      .map((str) => str.charAt(0).toUpperCase() + str.slice(1));
+
+    return newStr.join(" ");
+  }
   return (
     <Row>
       <Col>
         <Card>
           <CardBody>
-            <CardTitle className="h4">Striped rows</CardTitle>
-            <CardSubtitle className="card-title-desc">
-              Use <code>.table-striped</code> to add zebra-striping to any table
-              row within the <code>&lt;tbody&gt;</code>.
-            </CardSubtitle>
+            <CardTitle className="h4">Product Orders</CardTitle>
+            {/* <CardSubtitle className="card-title-desc">
+              
+            </CardSubtitle> */}
 
             <div className="table-responsive">
               <Table className="table table-striped mb-0">
                 <thead>
                   <tr>
-                    {data[0] && Object.keys(data[0]).map((k) => <th>{k}</th>)}
+                    {data[0] &&
+                      Object.keys(data[0]).map((k) => (
+                        <th>{formatTitle(k)}</th>
+                      ))}
                   </tr>
                 </thead>
                 <tbody>

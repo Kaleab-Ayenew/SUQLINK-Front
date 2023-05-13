@@ -14,7 +14,7 @@ import { CORE_BACKEND_URL } from "../../helpers/url_helper";
 function ProductDash(props) {
   const [orderData, setOrderData] = React.useState([]);
   const [cardData, setCardData] = React.useState({});
-  const [graphPeriod, setGraphPeriod] = React.useState("now");
+  const [graphPeriod, setGraphPeriod] = React.useState("day");
 
   React.useLayoutEffect(() => {
     fetch(`${CORE_BACKEND_URL}/ecom_full/static/orders/`, {
@@ -42,47 +42,48 @@ function ProductDash(props) {
         setCardData(data);
       });
   }, []);
+
+  const graphPeriodMap = {
+    hour: ["Hourly", "hour"],
+    day: ["Daily", "day"],
+    month: ["Monthly", "month"],
+    year: ["Yearly", "year"],
+  };
+
   return (
     <div className="page-content">
       <Container fluid={true}>
         <Breadcrumbs
-          title="AKalish Experminet Page"
-          breadcrumbItem={"AKalish Exp"}
+          title="Product Dashboard"
+          breadcrumbItem={"Product Info Dashboard"}
         />
         <Row>
           <Col>
             <Card>
               <CardBody>
                 <div className="d-sm-flex flex-wrap">
-                  <CardTitle>Monthly Sales Data</CardTitle>
+                  <CardTitle>
+                    {graphPeriodMap[graphPeriod][0]} Sales Data
+                  </CardTitle>
                   <div className="ms-auto">
                     <ul className="nav nav-pills">
-                      <li className="nav-item">
-                        <Link
-                          onClick={() => {
-                            setGraphPeriod("now");
-                          }}
-                          to="#"
-                          className={`nav-link ${
-                            graphPeriod === "now" ? "active" : ""
-                          }`}
-                        >
-                          To Now
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          onClick={() => {
-                            setGraphPeriod("all");
-                          }}
-                          to="#"
-                          className={`nav-link ${
-                            graphPeriod === "all" ? "active" : ""
-                          }`}
-                        >
-                          All Hours
-                        </Link>
-                      </li>
+                      {Object.values(graphPeriodMap).map((item, index) => {
+                        return (
+                          <li className="nav-item">
+                            <Link
+                              onClick={() => {
+                                setGraphPeriod(item[1]);
+                              }}
+                              to="#"
+                              className={`nav-link ${
+                                graphPeriod === item[1] ? "active" : ""
+                              }`}
+                            >
+                              {item[0]}
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 </div>
@@ -98,9 +99,8 @@ function ProductDash(props) {
             </Card>
           </Col>
         </Row>
-        <RevenueCard cardData={cardData} />
+        <RevenueCard cardData={cardData} graphPeriod={graphPeriod} />
         <TableComp orderData={orderData} />
-        <BadgesComp />
       </Container>
     </div>
   );

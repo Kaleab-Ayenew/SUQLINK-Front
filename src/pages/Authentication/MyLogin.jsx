@@ -107,11 +107,11 @@ function MyLogin(props) {
                       {error ? <Alert color="danger">{error}</Alert> : null}
 
                       <div className="mb-3">
-                        <Label className="form-label">Email</Label>
+                        <Label className="form-label">Username</Label>
                         <Input
                           name="username"
                           className="form-control"
-                          placeholder="Enter email"
+                          placeholder="Enter username"
                           type="text"
                         />
                       </div>
