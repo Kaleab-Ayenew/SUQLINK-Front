@@ -32,7 +32,6 @@ export const EditorContext = React.createContext();
 
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
-import { CORE_BACKEND_URL } from "../../helpers/url_helper";
 
 const AKalish = (props) => {
   document.title = "AKalish New Page";
