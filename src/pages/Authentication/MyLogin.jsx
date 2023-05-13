@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 import withRouter from "../../components/Common/withRouter";
 
 import RenderForm from "../product-edit/RenderForm";
+import { CORE_BACKEND_URL } from "../../helpers/url_helper";
 
 // import images
 import profile from "../../assets/images/profile-img.png";
@@ -30,7 +31,7 @@ function MyLogin(props) {
   function handleSubmit(e) {
     const fdata = new FormData(e.target);
 
-    fetch("http://127.0.0.1:8000/ecom_full/auth/login/", {
+    fetch(`${CORE_BACKEND_URL}/ecom_full/auth/login/`, {
       method: "POST",
       body: fdata,
     })

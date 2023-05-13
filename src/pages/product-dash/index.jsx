@@ -9,6 +9,7 @@ import TableComp from "./TableComp";
 import BadgesComp from "./BadgesComp";
 import { Badge } from "reactstrap";
 import DeleteModal from "../../components/Common/DeleteModal";
+import { CORE_BACKEND_URL } from "../../helpers/url_helper";
 
 function ProductDash(props) {
   const [orderData, setOrderData] = React.useState([]);
@@ -16,7 +17,7 @@ function ProductDash(props) {
   const [graphPeriod, setGraphPeriod] = React.useState("now");
 
   React.useLayoutEffect(() => {
-    fetch("http://127.0.0.1:8000/ecom_full/static/orders/", {
+    fetch(`${CORE_BACKEND_URL}/ecom_full/static/orders/`, {
       headers: {
         Authorization: `Token ${
           JSON.parse(localStorage.getItem("authUser")).token
@@ -28,7 +29,7 @@ function ProductDash(props) {
         console.log(data);
         setOrderData(data);
       });
-    fetch("http://127.0.0.1:8000/ecom_full/static/get-sales-data/", {
+    fetch(`${CORE_BACKEND_URL}/ecom_full/static/get-sales-data/`, {
       headers: {
         Authorization: `Token ${
           JSON.parse(localStorage.getItem("authUser")).token

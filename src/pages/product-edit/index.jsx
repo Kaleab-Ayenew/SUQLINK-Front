@@ -26,11 +26,13 @@ import { formFields } from "./formFields";
 import { socialConfirmFields } from "./formFields";
 
 import DeleteModal from "./DeleteModal";
+import { CORE_BACKEND_URL } from "../../helpers/url_helper";
 
 export const EditorContext = React.createContext();
 
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
+import { CORE_BACKEND_URL } from "../../helpers/url_helper";
 
 const AKalish = (props) => {
   document.title = "AKalish New Page";
@@ -55,7 +57,7 @@ const AKalish = (props) => {
 
   function handleProductDelete(e) {
     const slug = editProductData.slug;
-    fetch(`http://127.0.0.1:8000/ecom_full/static/products/${slug}/`, {
+    fetch(`${CORE_BACKEND_URL}/ecom_full/static/products/${slug}/`, {
       method: "DELETE",
       headers: {
         Authorization: `Token ${
@@ -89,7 +91,7 @@ const AKalish = (props) => {
     var json = JSON.stringify(object);
     console.log(json);
     setLoading(true);
-    fetch("http://127.0.0.1:8000/ecom_full/static/products/new/", {
+    fetch(`${CORE_BACKEND_URL}/ecom_full/static/products/new/`, {
       method: "POST",
       body: f,
       headers: {
@@ -141,7 +143,7 @@ const AKalish = (props) => {
 
     const slug = props.router.params.slug;
     setLoading(true);
-    fetch(`http://127.0.0.1:8000/ecom_full/static/products/${slug}/`, {
+    fetch(`${CORE_BACKEND_URL}/ecom_full/static/products/${slug}/`, {
       method: "PUT",
       body: f,
       headers: {
@@ -165,7 +167,7 @@ const AKalish = (props) => {
   React.useLayoutEffect(() => {
     if (props.edit === true) {
       const productSlug = props.router.params.slug;
-      fetch(`http://127.0.0.1:8000/ecom_full/static/products/${productSlug}/`, {
+      fetch(`${CORE_BACKEND_URL}/ecom_full/static/products/${productSlug}/`, {
         method: "GET",
         headers: {
           Authorization: `Token ${

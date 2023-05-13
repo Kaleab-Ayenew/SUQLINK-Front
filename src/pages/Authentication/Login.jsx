@@ -50,7 +50,7 @@ const Login = (props) => {
     onSubmit: (values) => {
       // dispatch(loginUser(values, props.router.navigate));
       console.log(values);
-      fetch("http://127.0.0.1:8000/ecom_full/auth/login/", {
+      fetch(`http://127.0.0.1:8000/ecom_full/auth/login/`, {
         body: JSON.stringify({ ...values, username: values.email }),
         method: "POST",
         headers: {

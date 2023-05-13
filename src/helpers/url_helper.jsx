@@ -1,5 +1,5 @@
 // CORE BACKEND URL
-export const CORE_BACKEND_URL = "http://127.0.0.1:8000/ecom_full";
+export const CORE_BACKEND_URL = "http://127.0.0.1:8000";
 
 //REGISTER
 export const POST_FAKE_REGISTER = "/post-fake-register";

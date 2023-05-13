@@ -15,6 +15,7 @@ import {
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 import ProductCard from "./ProductCard";
+import { CORE_BACKEND_URL } from "../../helpers/url_helper";
 
 const MyProductList = () => {
   //meta title
@@ -23,7 +24,7 @@ const MyProductList = () => {
   const [productList, setProdcutList] = React.useState([]);
 
   React.useLayoutEffect(() => {
-    fetch("http://127.0.0.1:8000/ecom_full/static/product.json")
+    fetch(`${CORE_BACKEND_URL}/ecom_full/static/product.json`)
       .then((rsp) => rsp.json())
       .then((data) => {
         console.log(data);
