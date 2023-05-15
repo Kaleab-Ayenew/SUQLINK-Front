@@ -5,7 +5,9 @@ function RevenueCard(props) {
   const data = [
     {
       title: `Past ${props.graphPeriod} Revenue`,
-      description: `ETB ${props.cardData.total_sales}.00` || "0",
+      description: props.cardData.total_sales
+        ? `ETB ${props.cardData.total_sales}.00`
+        : "0",
       iconClass: "bx bx-euro",
     },
     {
