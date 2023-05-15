@@ -27,15 +27,18 @@ import logo from "../../assets/images/logo.svg";
 
 function MyLogin(props) {
   const [error, setError] = React.useState();
+  const [loading, setLoading] = React.useState(false);
   const navigate = useNavigate();
   function handleSubmit(e) {
+    e.preventDefault();
     const fdata = new FormData(e.target);
-
+    setLoading(true);
     fetch(`${CORE_BACKEND_URL}/ecom_full/auth/login/`, {
       method: "POST",
       body: fdata,
     })
       .then((rsp) => {
+        setLoading(false);
         if (rsp.ok) {
           rsp.json().then((data) => {
             localStorage.setItem("authUser", JSON.stringify(data));
@@ -52,6 +55,7 @@ function MyLogin(props) {
         }
       })
       .catch((err) => {
+        setLoading(false);
         console.log(err);
         setError(err.message);
       });
@@ -143,7 +147,11 @@ function MyLogin(props) {
                         <button
                           className="btn btn-primary btn-block"
                           type="submit"
+                          disabled={loading}
                         >
+                          {loading ? (
+                            <i className="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>
+                          ) : null}
                           Log In
                         </button>
                       </div>
