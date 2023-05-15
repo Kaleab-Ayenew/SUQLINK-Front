@@ -148,19 +148,27 @@ const SidebarContent = (props) => {
             <li className="menu-title">Product Admin</li>
             <li>
               <Link className="has-arrow" to="#">
+                <i class="fas fa-shopping-cart"></i>
                 <span>{props.t("Manage Products")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="/products">{props.t("Add Products")}</Link>
-                </li>
-                <li>
-                  <Link to="/product-dash">
-                    {props.t("Products Dashboard")}
+                  <Link to="/products">
+                    <i class="fas fa-cart-plus"></i>
+                    <span>{props.t("Add Products")}</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/product-list">{props.t("Products List")}</Link>
+                  <Link to="/product-dash">
+                    <i class="fas fa-chart-line"></i>
+                    <span>{props.t("Products Dashboard")}</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/product-list">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>{props.t("Products List")}</span>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -169,12 +177,13 @@ const SidebarContent = (props) => {
             <li className="menu-title">Social Media Manager</li>
             <li>
               <Link className="has-arrow" to="#">
-                <span>{props.t("Manage Social Accounts")}</span>
+                <i class="bx bx-share-alt"></i>
+                <span>{props.t("Social Accounts")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
                   <Link to="/social-link">
-                    {props.t("Connect a Social Account")}
+                    <span>{props.t("Connect a Social Account")}</span>
                   </Link>
                 </li>
               </ul>
