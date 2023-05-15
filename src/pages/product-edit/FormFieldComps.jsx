@@ -48,6 +48,7 @@ export function NumberField(props) {
         defaultValue={props.default}
         name={props.name}
         required={!props.not_required}
+        min={`${props.min}`}
       />
     </div>
   );
@@ -63,8 +64,9 @@ export function DecimalField(props) {
         id={props.id}
         defaultValue={props.default}
         name={props.name}
-        step="any"
+        step={`${props.step}`}
         required={!props.not_required}
+        min={`${props.min}`}
       />
     </div>
   );

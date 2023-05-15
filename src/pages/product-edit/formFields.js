@@ -3,7 +3,6 @@ export const formFields = [
     type: "text",
     title: "Product Name",
     id: "product-name",
-    placeholder: "What is the name of your product?",
     name: "title",
   },
   {
@@ -68,12 +67,12 @@ export const formFields = [
     id: "product-in-stock",
     name: "stock",
   },
-  {
-    type: "text",
-    title: "Additional Information",
-    id: "product-additional-info",
-    name: "additional_info",
-  },
+  // {
+  //   type: "text",
+  //   title: "Additional Information",
+  //   id: "product-additional-info",
+  //   name: "additional_info",
+  // },
   {
     type: "file",
     title: "Social Image",
@@ -82,13 +81,13 @@ export const formFields = [
   },
   {
     type: "file",
-    title: "Product Images",
+    title: "Product Image 1",
     id: "product-image-1",
     name: "image_1",
   },
   {
     type: "file",
-    title: "Image 2",
+    title: "Product Image 2",
     id: "product-image-2",
     name: "image_2",
   },
@@ -108,6 +107,7 @@ export const formFields = [
   },
   {
     type: "decimal",
+    step: "0.1",
     title: "Processor Speed",
     id: "product-processor-speed",
     name: "processor_speed",
