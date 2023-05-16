@@ -31,7 +31,7 @@ export async function post(url, data, config = {}) {
 }
 
 export async function kal_post(url, data, config = {}) {
-  return fetch(url, { body: { ...data }, method: "POST" }) //, { ...config })
+  return fetch(url, { body: { ...data }, method: "POST", }) //, { ...config })
     .then((response) => response.json())
     .then((data) => data);
 }

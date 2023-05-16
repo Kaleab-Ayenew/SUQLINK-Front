@@ -16,21 +16,13 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const SocialLink = () => {
   //meta title
-  document.title =
-    "Social Link | Skote - Vite React Admin & Dashboard Template";
+  document.title = "Social Link | Balck Storm Admin Dashboard";
   const [login, setLogin] = React.useState(false);
   const [data, setData] = React.useState({});
   const [picture, setPicture] = React.useState("");
 
   const responseFacebook = (response) => {
     console.log(response);
-    // setData(response);
-    // setPicture(response.picture.data.url);
-    // if (response.accessToken) {
-    //   setLogin(true);
-    // } else {
-    //   setLogin(false);
-    // }
   };
 
   return (

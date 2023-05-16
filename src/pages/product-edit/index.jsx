@@ -34,7 +34,9 @@ import toastr from "toastr";
 import "toastr/build/toastr.min.css";
 
 const AKalish = (props) => {
-  document.title = "AKalish New Page";
+  document.title = `${
+    props.edit ? "Edit" : "Add"
+  } Products | Balck Storm Admin Dashboard`;
   const navigate = useNavigate();
   const [editProductData, setEditProductData] = React.useState({});
   const [editorState, setEditorState] = React.useState({ desc: "" });

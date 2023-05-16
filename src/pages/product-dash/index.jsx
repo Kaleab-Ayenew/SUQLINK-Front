@@ -12,6 +12,8 @@ import DeleteModal from "../../components/Common/DeleteModal";
 import { CORE_BACKEND_URL } from "../../helpers/url_helper";
 
 function ProductDash(props) {
+  document.title = "Product Dashboard | Balck Storm Admin Dashboard";
+
   const [orderData, setOrderData] = React.useState([]);
   const [cardData, setCardData] = React.useState({});
   const [graphPeriod, setGraphPeriod] = React.useState("day");

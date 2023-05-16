@@ -38,7 +38,7 @@ function* loginUser({ payload: { user, history } }) {
       localStorage.setItem("authUser", JSON.stringify(response));
       yield put(loginSuccess(response));
     } else if (import.meta.env.VITE_APP_DEFAULTAUTH === "main_api") {
-      const response = yield call(postFakeLogin, {
+      const response = yield call(postRealAPILogin, {
         email: user.email,
         password: user.password,
       });
