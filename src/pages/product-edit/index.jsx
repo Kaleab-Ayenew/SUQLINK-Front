@@ -33,6 +33,8 @@ export const EditorContext = React.createContext();
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
 
+import "./style/index.css";
+
 const AKalish = (props) => {
   document.title = `${
     props.edit ? "Edit" : "Add"
