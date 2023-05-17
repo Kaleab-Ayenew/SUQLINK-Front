@@ -47,6 +47,7 @@ const AKalish = (props) => {
   const [deleteMsg, setDeleteMsg] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [errorState, setErrorState] = React.useState();
+  const [isEdit, setIsEdit] = React.useState(props.edit);
 
   toastr.options.timeOut = 10000;
   toastr.options.closeButton = true;
@@ -232,7 +233,12 @@ const AKalish = (props) => {
                   </p>
                   <Form onSubmit={props.edit ? handleEditSubmit : handleSubmit}>
                     <EditorContext.Provider
-                      value={[editorState, setEditorState, formFieldData]}
+                      value={[
+                        editorState,
+                        setEditorState,
+                        formFieldData,
+                        isEdit,
+                      ]}
                     >
                       <RenderForm fieldData={formFieldData} />
                       {props.edit ? (
