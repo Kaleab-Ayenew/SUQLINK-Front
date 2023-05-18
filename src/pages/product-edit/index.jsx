@@ -237,7 +237,7 @@ const AKalish = (props) => {
                         editorState,
                         setEditorState,
                         formFieldData,
-                        isEdit,
+                        props.edit,
                       ]}
                     >
                       <RenderForm fieldData={formFieldData} />
