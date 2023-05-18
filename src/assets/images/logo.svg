@@ -1,14 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 225 225" style="enable-background:new 0 0 225 225;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:none;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-miterlimit:3;}
-</style>
-<g transform="matrix( 1, 0, 0, 1, 0,0) ">
-	<g>
-		<path id="Layer0_0_1_STROKES" class="st0" d="M173.8,151.5l13.6-13.6 M35.4,89.9l29.1-29 M89.4,34.9v1 M137.4,187.9l-0.6-0.4
-			 M36.6,138.7l0.2-0.2 M56.1,169.1l27.7-27.6 M63.8,111.5l74.3-74.4 M87.1,188.1L187.6,87.6 M110.8,114.5l57.8-57.8"/>
-	</g>
+<svg width="245" height="450" viewBox="0 0 245 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="121" cy="219.545" rx="121" ry="121" fill="black"/>
+<path d="M218.476 219.339C218.476 273.287 174.743 317.02 120.795 317.02C66.8465 317.02 23.1129 273.287 23.1129 219.339C23.1129 165.391 66.8465 121.658 120.795 121.658C174.743 121.658 218.476 165.391 218.476 219.339Z" fill="black"/>
+<path d="M218.476 219.339C218.476 273.287 174.743 317.02 120.795 317.02C66.8465 317.02 23.1129 273.287 23.1129 219.339C23.1129 165.391 66.8465 121.658 120.795 121.658C174.743 121.658 218.476 165.391 218.476 219.339Z" fill="black"/>
+<path d="M218.476 219.339C218.476 273.287 174.743 317.02 120.795 317.02C66.8465 317.02 23.1129 273.287 23.1129 219.339C23.1129 165.391 66.8465 121.658 120.795 121.658C174.743 121.658 218.476 165.391 218.476 219.339Z" stroke="url(#paint0_linear_125_3)" stroke-width="15"/>
+<g filter="url(#filter0_dd_125_3)">
+<path d="M32.4584 245.223L100.662 245.84L32.253 414.705L209.952 194.482L141.132 193.865L209.747 25L32.4584 245.223Z" fill="black"/>
+<path d="M32.4584 245.223L100.662 245.84L32.253 414.705L209.952 194.482L141.132 193.865L209.747 25L32.4584 245.223Z" fill="black"/>
+<path d="M141.065 201.365L194.376 201.842L58.2206 370.58L107.613 248.656L111.752 238.44L100.73 238.34L48.0117 237.864L183.589 69.4527L134.184 191.042L130.03 201.266L141.065 201.365Z" stroke="url(#paint1_linear_125_3)" stroke-width="15"/>
 </g>
+<defs>
+<filter id="filter0_dd_125_3" x="7.25299" y="0" width="237.699" height="449.705" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="5" dy="5"/>
+<feGaussianBlur stdDeviation="15"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.491917 0 0 0 0 0.504927 0 0 0 0 0.817282 0 0 0 0.3 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_125_3"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_125_3" result="effect2_dropShadow_125_3"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_125_3" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_125_3" x1="260.9" y1="66.9083" x2="-16.8446" y2="355.336" gradientUnits="userSpaceOnUse">
+<stop offset="0.00491732" stop-color="#FF6A01"/>
+<stop offset="0.509171" stop-color="#FF6A01"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<linearGradient id="paint1_linear_125_3" x1="204.2" y1="29.9304" x2="32.0485" y2="414.5" gradientUnits="userSpaceOnUse">
+<stop offset="0.159071" stop-color="#FEAD74"/>
+<stop offset="0.461172" stop-color="#FF6A01"/>
+<stop offset="0.763273" stop-color="#FEB47F"/>
+</linearGradient>
+</defs>
 </svg>

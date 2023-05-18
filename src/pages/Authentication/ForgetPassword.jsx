@@ -89,7 +89,7 @@ const ForgetPasswordPage = (props) => {
                             src={logo}
                             alt=""
                             className="rounded-circle"
-                            height="34"
+                            height="60"
                           />
                         </span>
                       </div>

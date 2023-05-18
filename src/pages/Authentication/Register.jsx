@@ -97,7 +97,7 @@ const Register = (props) => {
                             src={logoImg}
                             alt=""
                             className="rounded-circle"
-                            height="34"
+                            height="60"
                           />
                         </span>
                       </div>
