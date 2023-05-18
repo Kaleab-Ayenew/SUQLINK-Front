@@ -53,9 +53,9 @@ const Candlestickchart = ({ dataColors }) => {
 
         itemStyle: {
           normal: {
-            color: "#556ee6",
+            color: "#ff6a01",
             color0: "#34c38f",
-            borderColor: "#556ee6",
+            borderColor: "#ff6a01",
             borderColor0: "#34c38f",
           },
         },

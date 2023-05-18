@@ -1,54 +1,54 @@
-import React from "react"
+import React from "react";
 
-import "tui-chart/dist/tui-chart.css"
-import { BulletChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import "tui-chart/dist/tui-chart.css";
+import { BulletChart } from "@toast-ui/react-chart";
+import TuiChart from "tui-chart";
+import "./toastui.scss";
 
 const theme = {
   chart: {
     background: {
       color: "#fff",
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   title: {
-    color: "#8791af"
+    color: "#8791af",
   },
   xAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   yAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   plot: {
-    lineColor: "rgba(166, 176, 207, 0.1)"
+    lineColor: "rgba(166, 176, 207, 0.1)",
   },
   legend: {
     label: {
-      color: "#8791af"
-    }
+      color: "#8791af",
+    },
   },
   series: {
-    colors: ["#556ee6", "#34c38f", "#f1b44c", "#f46a6a"],
-    ranges: [{ color: "#eee", opacity: 0.7 }, null, { color: "#556ee6" }]
-  }
-}
-TuiChart.registerTheme("skoteTheme", theme)
+    colors: ["#ff6a01", "#34c38f", "#f1b44c", "#f46a6a"],
+    ranges: [{ color: "#eee", opacity: 0.7 }, null, { color: "#ff6a01" }],
+  },
+};
+TuiChart.registerTheme("skoteTheme", theme);
 
-const BulletChartToast = props => {
+const BulletChartToast = (props) => {
   const data = {
     categories: ["July", "August"],
     series: [
@@ -92,7 +92,7 @@ const BulletChartToast = props => {
         ],
       },
     ],
-  }
+  };
 
   const options = {
     chart: {
@@ -111,8 +111,8 @@ const BulletChartToast = props => {
       showLabel: true,
       vertical: false,
     },
-  }
+  };
 
-  return <BulletChart data={data} options={options} theme={theme} />
-}
-export default BulletChartToast
+  return <BulletChart data={data} options={options} theme={theme} />;
+};
+export default BulletChartToast;

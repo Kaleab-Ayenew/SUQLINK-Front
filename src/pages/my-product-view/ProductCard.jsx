@@ -31,7 +31,9 @@ function ProductCard(props) {
             />
             <CardBody>
               <CardTitle className="mt-0">{p.title}</CardTitle>
-              <CardText>{p.desc.replace(/<[^>]*>/g, "")}</CardText>
+              <CardText>
+                {p.desc.replace(/<[^>]*>/g, "").substr(0, 100)}
+              </CardText>
               <Link to={`/products/${p.slug}`} className="btn btn-primary">
                 View Details
               </Link>

@@ -110,8 +110,8 @@ const Header = (props) => {
                 <span className="bx bx-search-alt" />
               </div>
             </form>
-
-            <Dropdown
+            {/* by esmael */}
+            {/* <Dropdown
               className="dropdown-mega d-none d-lg-block ms-2"
               isOpen={menu}
               toggle={() => setMenu(!menu)}
@@ -252,7 +252,7 @@ const Header = (props) => {
                   </Col>
                 </Row>
               </DropdownMenu>
-            </Dropdown>
+            </Dropdown> */}
           </div>
 
           <div className="d-flex">

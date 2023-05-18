@@ -1,53 +1,53 @@
-import React from "react"
+import React from "react";
 
-import "tui-chart/dist/tui-chart.css"
-import { AreaChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import "tui-chart/dist/tui-chart.css";
+import { AreaChart } from "@toast-ui/react-chart";
+import TuiChart from "tui-chart";
+import "./toastui.scss";
 
 const theme = {
   chart: {
     background: {
       color: "#fff",
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   title: {
-    color: "#8791af"
+    color: "#8791af",
   },
   xAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   yAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   plot: {
-    lineColor: "rgba(166, 176, 207, 0.1)"
+    lineColor: "rgba(166, 176, 207, 0.1)",
   },
   legend: {
     label: {
-      color: "#8791af"
-    }
+      color: "#8791af",
+    },
   },
   series: {
-    colors: ["#f46a6a", "#34c38f", "#556ee6"]
-  }
-}
-TuiChart.registerTheme("skoteTheme", theme)
+    colors: ["#f46a6a", "#34c38f", "#ff6a01"],
+  },
+};
+TuiChart.registerTheme("skoteTheme", theme);
 
-const AreaChartToast = props => {
+const AreaChartToast = (props) => {
   const data = {
     categories: [
       "Jan",
@@ -77,7 +77,7 @@ const AreaChartToast = props => {
         data: [30, 5, 18, 21, 33, 41, 29, 15, 30, 10, 33, 5],
       },
     ],
-  }
+  };
 
   const options = {
     chart: {
@@ -100,8 +100,8 @@ const AreaChartToast = props => {
     tooltip: {
       suffix: "°C",
     },
-  }
+  };
 
-  return <AreaChart data={data} options={options} />
-}
-export default AreaChartToast
+  return <AreaChart data={data} options={options} />;
+};
+export default AreaChartToast;

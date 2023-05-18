@@ -25,7 +25,7 @@ const Guage = ({ dataColors }) => {
           lineStyle: {
             color: [
               [0.2, "#34c38f"],
-              [0.8, "#556ee6"],
+              [0.8, "#ff6a01"],
               [1, "#f46a6a"],
             ],
             width: 20,

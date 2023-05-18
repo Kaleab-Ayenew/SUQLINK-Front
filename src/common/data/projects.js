@@ -24,21 +24,32 @@ const projects = [
     commentsCount: 214,
     team: [
       {
-        id: 1, img: "avatar4", fullname: "Janice Cole", skills: [
+        id: 1,
+        img: "avatar4",
+        fullname: "Janice Cole",
+        skills: [
           { id: 1, name: "Frontend" },
           { id: 2, name: "UI" },
         ],
       },
       {
-        id: 2, img: "avatar5", fullname: "Steve Foster",
+        id: 2,
+        img: "avatar5",
+        fullname: "Steve Foster",
         skills: [{ id: 1, name: "UI/UX" }],
       },
       {
-        id: 3, img: "Null", name: "A", color: "success", fullname: "Aeffrey Walker",
+        id: 3,
+        img: "Null",
+        name: "A",
+        color: "success",
+        fullname: "Aeffrey Walker",
         skills: [{ id: 1, name: "Backend" }],
       },
       {
-        id: 4, img: "avatar2", fullname: "Daniel Candles",
+        id: 4,
+        img: "avatar2",
+        fullname: "Daniel Candles",
         skills: [
           { id: 1, name: "Frontend" },
           { id: 2, name: "UI" },
@@ -56,9 +67,9 @@ const projects = [
       ],
     },
     files: [
-      { name: "Skote Landing.Zip", size: "3.25 MB", link: "#" },
-      { name: "Skote Admin.Zip", size: "3.15 MB", link: "#" },
-      { name: "Skote Logo.Zip", size: "2.02 MB", link: "#" },
+      { name: "BlackStorm Landing.Zip", size: "3.25 MB", link: "#" },
+      { name: "BlackStorm Admin.Zip", size: "3.15 MB", link: "#" },
+      { name: "BlackStorm Logo.Zip", size: "2.02 MB", link: "#" },
       { name: "Veltrix admin.Zip", size: "2.25 MB", link: "#" },
     ],
     comments: [
@@ -109,9 +120,9 @@ const projects = [
       ],
     },
     files: [
-      { name: "Skote Landing.Zip", size: "3.25 MB", link: "#" },
-      { name: "Skote Admin.Zip", size: "3.15 MB", link: "#" },
-      { name: "Skote Logo.Zip", size: "2.02 MB", link: "#" },
+      { name: "BlackStorm Landing.Zip", size: "3.25 MB", link: "#" },
+      { name: "BlackStorm Admin.Zip", size: "3.15 MB", link: "#" },
+      { name: "BlackStorm Logo.Zip", size: "2.02 MB", link: "#" },
       { name: "Veltrix admin.Zip", size: "2.25 MB", link: "#" },
     ],
     comments: [
@@ -148,8 +159,14 @@ const projects = [
     dueDate: "13 Oct, 19",
     commentsCount: 175,
     team: [
-      { id: 1, img: "Null", name: "K", color: "info", fullname: "Kony Brafford" },
-      { id: 2, img: "avatar2", fullname: "Daniel Candles" }
+      {
+        id: 1,
+        img: "Null",
+        name: "K",
+        color: "info",
+        fullname: "Kony Brafford",
+      },
+      { id: 2, img: "avatar2", fullname: "Daniel Candles" },
     ],
     startDate: "08 Sept, 2019",
     projectDetails: {
@@ -162,9 +179,9 @@ const projects = [
       ],
     },
     files: [
-      { name: "Skote Landing.Zip", size: "3.25 MB", link: "#" },
-      { name: "Skote Admin.Zip", size: "3.15 MB", link: "#" },
-      { name: "Skote Logo.Zip", size: "2.02 MB", link: "#" },
+      { name: "BlackStorm Landing.Zip", size: "3.25 MB", link: "#" },
+      { name: "BlackStorm Admin.Zip", size: "3.15 MB", link: "#" },
+      { name: "BlackStorm Logo.Zip", size: "2.02 MB", link: "#" },
       { name: "Veltrix admin.Zip", size: "2.25 MB", link: "#" },
     ],
     comments: [
@@ -216,9 +233,9 @@ const projects = [
       ],
     },
     files: [
-      { name: "Skote Landing.Zip", size: "3.25 MB", link: "#" },
-      { name: "Skote Admin.Zip", size: "3.15 MB", link: "#" },
-      { name: "Skote Logo.Zip", size: "2.02 MB", link: "#" },
+      { name: "BlackStorm Landing.Zip", size: "3.25 MB", link: "#" },
+      { name: "BlackStorm Admin.Zip", size: "3.15 MB", link: "#" },
+      { name: "BlackStorm Logo.Zip", size: "2.02 MB", link: "#" },
       { name: "Veltrix admin.Zip", size: "2.25 MB", link: "#" },
     ],
     comments: [
@@ -248,7 +265,7 @@ const projects = [
   {
     id: 4,
     img: "img5",
-    name: "Skote Dashboard UI",
+    name: "BlackStorm Dashboard UI",
     description: "Separate existence is a myth",
     status: "Completed",
     color: "success",
@@ -270,9 +287,9 @@ const projects = [
       ],
     },
     files: [
-      { name: "Skote Landing.Zip", size: "3.25 MB", link: "#" },
-      { name: "Skote Admin.Zip", size: "3.15 MB", link: "#" },
-      { name: "Skote Logo.Zip", size: "2.02 MB", link: "#" },
+      { name: "BlackStorm Landing.Zip", size: "3.25 MB", link: "#" },
+      { name: "BlackStorm Admin.Zip", size: "3.15 MB", link: "#" },
+      { name: "BlackStorm Logo.Zip", size: "2.02 MB", link: "#" },
       { name: "Veltrix admin.Zip", size: "2.25 MB", link: "#" },
     ],
     comments: [
@@ -323,9 +340,9 @@ const projects = [
       ],
     },
     files: [
-      { name: "Skote Landing.Zip", size: "3.25 MB", link: "#" },
-      { name: "Skote Admin.Zip", size: "3.15 MB", link: "#" },
-      { name: "Skote Logo.Zip", size: "2.02 MB", link: "#" },
+      { name: "BlackStorm Landing.Zip", size: "3.25 MB", link: "#" },
+      { name: "BlackStorm Admin.Zip", size: "3.15 MB", link: "#" },
+      { name: "BlackStorm Logo.Zip", size: "2.02 MB", link: "#" },
       { name: "Veltrix admin.Zip", size: "2.25 MB", link: "#" },
     ],
     comments: [
@@ -363,7 +380,13 @@ const projects = [
     commentsCount: 214,
     team: [
       { id: 1, img: "avatar5", fullname: "Steve Foster" },
-      { id: 3, img: "Null", name: "R", color: "warning", fullname: "Rony Candles" },
+      {
+        id: 3,
+        img: "Null",
+        name: "R",
+        color: "warning",
+        fullname: "Rony Candles",
+      },
     ],
   },
   {
@@ -390,9 +413,9 @@ const projects = [
       ],
     },
     files: [
-      { name: "Skote Landing.Zip", size: "3.25 MB", link: "#" },
-      { name: "Skote Admin.Zip", size: "3.15 MB", link: "#" },
-      { name: "Skote Logo.Zip", size: "2.02 MB", link: "#" },
+      { name: "BlackStorm Landing.Zip", size: "3.25 MB", link: "#" },
+      { name: "BlackStorm Admin.Zip", size: "3.15 MB", link: "#" },
+      { name: "BlackStorm Logo.Zip", size: "2.02 MB", link: "#" },
       { name: "Veltrix admin.Zip", size: "2.25 MB", link: "#" },
     ],
     comments: [
@@ -431,7 +454,13 @@ const projects = [
     team: [
       { id: 1, img: "avatar4", fullname: "Janice Cole" },
       { id: 2, img: "avatar5", fullname: "Steve Foster" },
-      { id: 3, img: "Null", name: "A", color: "success", fullname: "Aeffrey Walker" },
+      {
+        id: 3,
+        img: "Null",
+        name: "A",
+        color: "success",
+        fullname: "Aeffrey Walker",
+      },
       { id: 3, img: "avatar2", fullname: "Daniel Candles" },
     ],
     startDate: "08 Sept, 2019",
@@ -445,9 +474,9 @@ const projects = [
       ],
     },
     files: [
-      { name: "Skote Landing.Zip", size: "3.25 MB", link: "#" },
-      { name: "Skote Admin.Zip", size: "3.15 MB", link: "#" },
-      { name: "Skote Logo.Zip", size: "2.02 MB", link: "#" },
+      { name: "BlackStorm Landing.Zip", size: "3.25 MB", link: "#" },
+      { name: "BlackStorm Admin.Zip", size: "3.15 MB", link: "#" },
+      { name: "BlackStorm Logo.Zip", size: "2.02 MB", link: "#" },
       { name: "Veltrix admin.Zip", size: "2.25 MB", link: "#" },
     ],
     comments: [
@@ -520,7 +549,7 @@ const options = {
       text: "Week",
     },
   },
-  colors: ["#556ee6"],
+  colors: ["#ff6a01"],
 };
 
 const series = [
@@ -543,16 +572,21 @@ const projectListData = [
 
     team: [
       {
-        id: 1, img: avatar4
+        id: 1,
+        img: avatar4,
       },
       {
-        id: 2, img: avatar5
+        id: 2,
+        img: avatar5,
       },
       {
-        id: 3, profile: "A", profileColor: "success",
+        id: 3,
+        profile: "A",
+        profileColor: "success",
       },
       {
-        id: 4, img: avatar2
+        id: 4,
+        img: avatar2,
       },
     ],
   },
@@ -594,7 +628,9 @@ const projectListData = [
     team: [
       { id: 1, img: avatar5 },
       {
-        id: 2, profile: "R", profileColor: "warning",
+        id: 2,
+        profile: "R",
+        profileColor: "warning",
       },
       { id: 3, img: avatar2 },
     ],
@@ -602,7 +638,7 @@ const projectListData = [
   {
     id: 5,
     img: companies05,
-    name: "Skote Dashboard UI",
+    name: "BlackStorm Dashboard UI",
     description: "Separate existence is a myth",
     dueDate: "22 Oct, 19",
     status: "Completed",
@@ -622,7 +658,9 @@ const projectListData = [
     color: "warning",
     team: [
       {
-        id: 1, profile: "A", profileColor: "danger",
+        id: 1,
+        profile: "A",
+        profileColor: "danger",
       },
       { id: 2, img: avatar2 },
     ],

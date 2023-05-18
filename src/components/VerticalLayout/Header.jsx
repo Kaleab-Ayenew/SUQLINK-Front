@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 import { connect } from "react-redux";
@@ -35,7 +35,7 @@ import {
   changeSidebarType,
 } from "../../store/actions";
 
-const Header = props => {
+const Header = (props) => {
   const [search, setsearch] = useState(false);
   const [megaMenu, setmegaMenu] = useState(false);
   const [socialDrp, setsocialDrp] = useState(false);
@@ -82,7 +82,6 @@ const Header = props => {
       <header id="page-topbar">
         <div className="navbar-header">
           <div className="d-flex">
-
             <div className="navbar-brand-box d-lg-none d-md-block">
               <Link to="/" className="logo logo-dark">
                 <span className="logo-sm">
@@ -119,7 +118,7 @@ const Header = props => {
               </div>
             </form>
 
-            <Dropdown
+            {/* <Dropdown
               className="dropdown-mega d-none d-lg-block ms-2"
               isOpen={megaMenu}
               toggle={() => {
@@ -267,7 +266,7 @@ const Header = props => {
                   </Col>
                 </Row>
               </DropdownMenu>
-            </Dropdown>
+            </Dropdown> */}
           </div>
           <div className="d-flex">
             <div className="dropdown d-inline-block d-lg-none ms-2">
@@ -309,9 +308,9 @@ const Header = props => {
               </div>
             </div>
 
-            <LanguageDropdown />
+            {/* <LanguageDropdown /> */}
 
-            <Dropdown
+            {/* <Dropdown
               className="d-none d-lg-inline-block ms-1"
               isOpen={socialDrp}
               toggle={() => {
@@ -369,8 +368,8 @@ const Header = props => {
                   </Row>
                 </div>
               </DropdownMenu>
-            </Dropdown>
-
+            </Dropdown> */}
+            {/* 
             <div className="dropdown d-none d-lg-inline-block ms-1">
               <button
                 type="button"
@@ -385,10 +384,10 @@ const Header = props => {
             </div>
 
             <NotificationDropdown />
-            <ProfileMenu />
-            
-            <div
-               onClick={() => {
+            <ProfileMenu /> */}
+
+            {/* <div
+              onClick={() => {
                 props.showRightSidebarAction(!props.showRightSidebar);
               }}
               className="dropdown d-inline-block"
@@ -399,7 +398,7 @@ const Header = props => {
               >
                 <i className="bx bx-cog bx-spin" />
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </header>
@@ -414,16 +413,12 @@ Header.propTypes = {
   showRightSidebar: PropTypes.any,
   showRightSidebarAction: PropTypes.func,
   t: PropTypes.any,
-  toggleLeftmenu: PropTypes.func
+  toggleLeftmenu: PropTypes.func,
 };
 
-const mapStatetoProps = state => {
-  const {
-    layoutType,
-    showRightSidebar,
-    leftMenu,
-    leftSideBarType,
-  } = state.Layout;
+const mapStatetoProps = (state) => {
+  const { layoutType, showRightSidebar, leftMenu, leftSideBarType } =
+    state.Layout;
   return { layoutType, showRightSidebar, leftMenu, leftSideBarType };
 };
 
