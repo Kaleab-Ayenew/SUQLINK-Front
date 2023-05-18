@@ -16,16 +16,16 @@ import { splitArray } from "./utils";
 function ProductCard(props) {
   const data = props.productList;
   console.log(data, "This is data");
-  const splitedData = splitArray(data, 3);
+  const splitedData = splitArray(data, 4);
   console.log(splitedData);
   return splitedData.map((item) => (
     <Row>
       {item.map((p) => (
-        <Col mg={6} xl={4}>
+        <Col mg={4} xl={3}>
           <Card>
             <CardImg
               top
-              className="img-fluid"
+              // className="img-fluid"
               src={p.images[0].img}
               alt="Skote"
             />
