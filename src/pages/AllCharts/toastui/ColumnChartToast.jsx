@@ -1,53 +1,53 @@
-import React from "react"
+import React from "react";
 
-import "tui-chart/dist/tui-chart.css"
-import { ColumnChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import "tui-chart/dist/tui-chart.css";
+import { ColumnChart } from "@toast-ui/react-chart";
+import TuiChart from "tui-chart";
+import "./toastui.scss";
 
 const theme = {
   chart: {
     background: {
       color: "#fff",
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   title: {
-    color: "#8791af"
+    color: "#8791af",
   },
   xAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   yAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   plot: {
-    lineColor: "rgba(166, 176, 207, 0.1)"
+    lineColor: "rgba(166, 176, 207, 0.1)",
   },
   legend: {
     label: {
-      color: "#8791af"
-    }
+      color: "#8791af",
+    },
   },
   series: {
-    colors: ["#34c38f", "#556ee6", "#f46a6a"]
-  }
-}
-TuiChart.registerTheme("skoteTheme", theme)
+    colors: ["#34c38f", "#ff6a01", "#f46a6a"],
+  },
+};
+TuiChart.registerTheme("skoteTheme", theme);
 
-const ColumnChartToast = props => {
+const ColumnChartToast = (props) => {
   const data = {
     categories: [
       "Jun, 2019",
@@ -72,7 +72,7 @@ const ColumnChartToast = props => {
         data: [4000, 4000, 6000, 3000, 4000, 5000, 7000],
       },
     ],
-  }
+  };
 
   const options = {
     chart: {
@@ -92,12 +92,12 @@ const ColumnChartToast = props => {
     legend: {
       align: "top",
     },
-  }
+  };
 
   return (
     <React.Fragment>
       <ColumnChart data={data} options={options} />
     </React.Fragment>
-  )
-}
-export default ColumnChartToast
+  );
+};
+export default ColumnChartToast;

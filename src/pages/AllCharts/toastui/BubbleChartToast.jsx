@@ -1,52 +1,52 @@
-import React from "react"
-import "tui-chart/dist/tui-chart.css"
-import { BubbleChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import React from "react";
+import "tui-chart/dist/tui-chart.css";
+import { BubbleChart } from "@toast-ui/react-chart";
+import TuiChart from "tui-chart";
+import "./toastui.scss";
 
 const theme = {
   chart: {
     background: {
       color: "#fff",
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   title: {
-    color: "#8791af"
+    color: "#8791af",
   },
   xAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   yAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   plot: {
-    lineColor: "rgba(166, 176, 207, 0.1)"
+    lineColor: "rgba(166, 176, 207, 0.1)",
   },
   legend: {
     label: {
-      color: "#8791af"
-    }
+      color: "#8791af",
+    },
   },
   series: {
-    colors: ["#556ee6", "#34c38f", "#f1b44c", "#f46a6a"]
-  }
-}
-TuiChart.registerTheme("skoteTheme", theme)
+    colors: ["#ff6a01", "#34c38f", "#f1b44c", "#f46a6a"],
+  },
+};
+TuiChart.registerTheme("skoteTheme", theme);
 
-const BubbleChartToast = props => {
+const BubbleChartToast = (props) => {
   const data = {
     series: [
       {
@@ -155,7 +155,7 @@ const BubbleChartToast = props => {
         ],
       },
     ],
-  }
+  };
 
   const options = {
     chart: {
@@ -165,10 +165,10 @@ const BubbleChartToast = props => {
       format: function (value, chartType, areaType, valueType) {
         if (valueType === "r" || valueType === "x") {
           if (valueType === "x") {
-            value = "$" + value
+            value = "$" + value;
           }
         }
-        return value
+        return value;
       },
     },
     yAxis: {
@@ -213,11 +213,11 @@ const BubbleChartToast = props => {
           "</tr>" +
           "</table>" +
           "</div>"
-        )
+        );
       },
     },
-  }
+  };
 
-  return <BubbleChart data={data} options={options} />
-}
-export default BubbleChartToast
+  return <BubbleChart data={data} options={options} />;
+};
+export default BubbleChartToast;

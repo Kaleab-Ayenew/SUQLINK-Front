@@ -71,7 +71,7 @@ const Header = (props) => {
             <div className="navbar-brand-box">
               <Link to="/" className="logo logo-dark">
                 <span className="logo-sm">
-                  <img src={logo} alt="" height="22" />
+                  <img src={logo} alt="" height="50" />
                 </span>
                 <span className="logo-lg">
                   <img src={logoDark} alt="" height="17" />
@@ -80,7 +80,7 @@ const Header = (props) => {
 
               <Link to="/" className="logo logo-light">
                 <span className="logo-sm">
-                  <img src={logoLightSvg} alt="" height="22" />
+                  <img src={logoLightSvg} alt="" height="50" />
                 </span>
                 <span className="logo-lg">
                   <img src={logoLight} alt="" height="19" />
@@ -110,8 +110,8 @@ const Header = (props) => {
                 <span className="bx bx-search-alt" />
               </div>
             </form>
-
-            <Dropdown
+            {/* by esmael */}
+            {/* <Dropdown
               className="dropdown-mega d-none d-lg-block ms-2"
               isOpen={menu}
               toggle={() => setMenu(!menu)}
@@ -252,7 +252,7 @@ const Header = (props) => {
                   </Col>
                 </Row>
               </DropdownMenu>
-            </Dropdown>
+            </Dropdown> */}
           </div>
 
           <div className="d-flex">
@@ -293,7 +293,7 @@ const Header = (props) => {
               </div>
             </div>
 
-            <LanguageDropdown />
+            {/* <LanguageDropdown />
 
             <Dropdown
               className="d-none d-lg-inline-block ms-1"
@@ -368,11 +368,11 @@ const Header = (props) => {
               </button>
             </div>
 
-            <NotificationDropdown />
+            <NotificationDropdown /> */}
 
             <ProfileMenu />
 
-            <div className="dropdown d-inline-block">
+            {/* <div className="dropdown d-inline-block">
               <button
                 onClick={() => {
                   props.showRightSidebarAction(!props.showRightSidebar);
@@ -382,7 +382,7 @@ const Header = (props) => {
               >
                 <i className="bx bx-cog bx-spin" />
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </header>

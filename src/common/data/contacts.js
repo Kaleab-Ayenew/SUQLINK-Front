@@ -1,9 +1,9 @@
-import avatar1 from "../../assets/images/users/avatar-1.jpg"
-import avatar2 from "../../assets/images/users/avatar-2.jpg"
-import avatar3 from "../../assets/images/users/avatar-3.jpg"
-import avatar4 from "../../assets/images/users/avatar-4.jpg"
-import avatar5 from "../../assets/images/users/avatar-5.jpg"
-import avatar7 from "../../assets/images/users/avatar-7.jpg"
+import avatar1 from "../../assets/images/users/avatar-1.jpg";
+import avatar2 from "../../assets/images/users/avatar-2.jpg";
+import avatar3 from "../../assets/images/users/avatar-3.jpg";
+import avatar4 from "../../assets/images/users/avatar-4.jpg";
+import avatar5 from "../../assets/images/users/avatar-5.jpg";
+import avatar7 from "../../assets/images/users/avatar-7.jpg";
 
 const users = [
   {
@@ -11,7 +11,7 @@ const users = [
     name: "David McHenry",
     designation: "UI/UX Designer",
     color: "primary",
-    email: "david@skote.com",
+    email: "david@BlackStorm.com",
     projects: "125",
     tags: ["Photoshop", "illustrator"],
   },
@@ -20,7 +20,7 @@ const users = [
     img: avatar2,
     name: "Frank Kirk",
     designation: "Frontend Developer",
-    email: "frank@skote.com",
+    email: "frank@BlackStorm.com",
     projects: "132",
     tags: ["Html", "Css", "Php"],
   },
@@ -29,7 +29,7 @@ const users = [
     img: avatar3,
     name: "Rafael Morales",
     designation: "Backend Developer",
-    email: "Rafael@skote.com",
+    email: "Rafael@BlackStorm.com",
     projects: "1112",
     tags: ["Php", "Java", "Python", "Html"],
   },
@@ -38,7 +38,7 @@ const users = [
     name: "Mark Ellison",
     designation: "Full Stack Developer",
     color: "success",
-    email: "mark@skote.com",
+    email: "mark@BlackStorm.com",
     projects: "121",
     tags: ["Ruby", "Php", "UI/UX Designer"],
   },
@@ -47,7 +47,7 @@ const users = [
     img: avatar4,
     name: "Minnie Walter",
     designation: "Frontend Developer",
-    email: "minnie@skote.com",
+    email: "minnie@BlackStorm.com",
     projects: "145",
     tags: ["Html", "Css", "Java"],
   },
@@ -56,7 +56,7 @@ const users = [
     img: avatar5,
     name: "Shirley Smith",
     designation: "UI/UX Designer",
-    email: "shirley@skote.com",
+    email: "shirley@BlackStorm.com",
     projects: "136",
     tags: ["Photoshop", "illustrator"],
   },
@@ -65,7 +65,7 @@ const users = [
     name: "John Santiago",
     designation: "Full Stack Developer",
     color: "info",
-    email: "john@skote.com",
+    email: "john@BlackStorm.com",
     projects: "125",
     tags: ["Ruby", "Php", "Java"],
   },
@@ -75,11 +75,11 @@ const users = [
     name: "Colin Melton",
     designation: "Backend Developer",
     color: "",
-    email: "colin@skote.com",
+    email: "colin@BlackStorm.com",
     projects: "136",
     tags: ["Php", "Java", "Python"],
   },
-]
+];
 const userProfile = {
   id: 1,
   name: "Cynthia Price",
@@ -90,7 +90,7 @@ const userProfile = {
   personalDetail:
     "Hi I'm Cynthia Price,has been the industry's standard dummy text To an English person, it will seem like simplified English, as a skeptical Cambridge.",
   phone: "(123) 123 1234",
-  email: "cynthiaskote@gmail.com",
+  email: "cynthiaBlackStorm@gmail.com",
   location: "California, United States",
   experiences: [
     {
@@ -118,14 +118,14 @@ const userProfile = {
   projects: [
     {
       id: 1,
-      name: "Skote admin UI",
+      name: "BlackStorm admin UI",
       startDate: "2 Sep, 2019",
       deadline: "20 Oct, 2019",
       budget: "$506",
     },
     {
       id: 2,
-      name: "Skote admin Logo",
+      name: "BlackStorm admin Logo",
       startDate: "1 Sep, 2019",
       deadline: "2 Sep, 2019",
       budget: "$94",
@@ -166,5 +166,5 @@ const userProfile = {
       budget: "$94",
     },
   ],
-}
-export { users, userProfile }
+};
+export { users, userProfile };

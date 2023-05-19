@@ -1,9 +1,9 @@
-import React from "react"
+import React from "react";
 
-import "tui-chart/dist/tui-chart.css"
-import { PieChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import "tui-chart/dist/tui-chart.css";
+import { PieChart } from "@toast-ui/react-chart";
+import TuiChart from "tui-chart";
+import "./toastui.scss";
 
 var theme = {
   chart: {
@@ -25,12 +25,12 @@ var theme = {
     },
   },
   series: {
-    colors: ["#556ee6", "#34c38f", "#f46a6a", "#50a5f1", "#f1b44c"],
+    colors: ["#ff6a01", "#34c38f", "#f46a6a", "#50a5f1", "#f1b44c"],
   },
-}
-TuiChart.registerTheme("skoteTheme", theme)
+};
+TuiChart.registerTheme("skoteTheme", theme);
 
-const PieChartToast = props => {
+const PieChartToast = (props) => {
   const data = {
     categories: ["Browser"],
     series: [
@@ -55,7 +55,7 @@ const PieChartToast = props => {
         data: 10.35,
       },
     ],
-  }
+  };
 
   const options = {
     chart: {
@@ -66,11 +66,11 @@ const PieChartToast = props => {
     tooltip: {
       suffix: "%",
     },
-  }
+  };
   return (
     <React.Fragment>
       <PieChart data={data} options={options} />
     </React.Fragment>
-  )
-}
-export default PieChartToast
+  );
+};
+export default PieChartToast;

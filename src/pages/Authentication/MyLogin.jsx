@@ -77,7 +77,7 @@ function MyLogin(props) {
                     <Col xs={7}>
                       <div className="text-primary p-4">
                         <h5 className="text-primary">Welcome Back !</h5>
-                        <p>Sign in to continue to Skote.</p>
+                        <p>Sign in to continue to BlackStorm.</p>
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
@@ -94,7 +94,7 @@ function MyLogin(props) {
                             src={logo}
                             alt=""
                             className="rounded-circle"
-                            height="34"
+                            height="60"
                           />
                         </span>
                       </div>
@@ -175,8 +175,8 @@ function MyLogin(props) {
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} Skote. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Themesbrand
+                  © {new Date().getFullYear()} BlackStorm.{" "}
+                  <i className="mdi mdi-heart text-danger" />
                 </p>
               </div>
             </Col>

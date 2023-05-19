@@ -1,41 +1,41 @@
-import React from "react"
-import "tui-chart/dist/tui-chart.css"
-import { TreeMapChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import React from "react";
+import "tui-chart/dist/tui-chart.css";
+import { TreeMapChart } from "@toast-ui/react-chart";
+import TuiChart from "tui-chart";
+import "./toastui.scss";
 
 const theme = {
   chart: {
     background: {
       color: "#fff",
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   title: {
-    color: "#8791af"
+    color: "#8791af",
   },
 
   plot: {
-    lineColor: "rgba(166, 176, 207, 0.1)"
+    lineColor: "rgba(166, 176, 207, 0.1)",
   },
   legend: {
     label: {
-      color: "#8791af"
-    }
+      color: "#8791af",
+    },
   },
   series: {
     series: {
-      colors: ["#556ee6", "#34c38f", "#f46a6a", "#50a5f1", "#f1b44c"]
+      colors: ["#ff6a01", "#34c38f", "#f46a6a", "#50a5f1", "#f1b44c"],
     },
     label: {
       color: "#fff",
-      fontFamily: "sans-serif"
-    }
-  }
-}
-TuiChart.registerTheme("skoteTheme", theme)
+      fontFamily: "sans-serif",
+    },
+  },
+};
+TuiChart.registerTheme("skoteTheme", theme);
 
-const TreeMapChartToast = props => {
+const TreeMapChartToast = (props) => {
   const data = {
     series: [
       {
@@ -94,29 +94,29 @@ const TreeMapChartToast = props => {
         value: 4.5,
       },
     ],
-  }
+  };
 
   const options = {
     chart: {
       width: props.chartWidth,
       height: 380,
-      title: "Used disk space"
+      title: "Used disk space",
     },
     series: {
       showLabel: true,
       zoomable: false,
-      useLeafLabel: true
+      useLeafLabel: true,
     },
 
     tooltip: {
-      suffix: "GB"
-    }
-  }
+      suffix: "GB",
+    },
+  };
 
   return (
     <React.Fragment>
       <TreeMapChart data={data} options={options} theme={theme} />
     </React.Fragment>
-  )
-}
-export default TreeMapChartToast
+  );
+};
+export default TreeMapChartToast;

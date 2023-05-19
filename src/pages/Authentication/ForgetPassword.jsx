@@ -32,7 +32,7 @@ import logo from "../../assets/images/logo.svg";
 const ForgetPasswordPage = (props) => {
   //meta title
   document.title =
-    "Forget Password | Skote - Vite React Admin & Dashboard Template";
+    "Forget Password | BlackStorm - Vite React Admin & Dashboard Template";
   const dispatch = useDispatch();
 
   const validation = useFormik({
@@ -72,7 +72,7 @@ const ForgetPasswordPage = (props) => {
                     <Col xs={7}>
                       <div className="text-primary p-4">
                         <h5 className="text-primary">Welcome Back !</h5>
-                        <p>Sign in to continue to Skote.</p>
+                        <p>Sign in to continue to BlackStorm.</p>
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
@@ -89,7 +89,7 @@ const ForgetPasswordPage = (props) => {
                             src={logo}
                             alt=""
                             className="rounded-circle"
-                            height="34"
+                            height="60"
                           />
                         </span>
                       </div>
@@ -159,8 +159,8 @@ const ForgetPasswordPage = (props) => {
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} Skote. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Themesbrand
+                  © {new Date().getFullYear()} BlackStorm.{" "}
+                  <i className="mdi mdi-heart text-danger" />
                 </p>
               </div>
             </Col>

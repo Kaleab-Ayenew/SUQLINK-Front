@@ -1,8 +1,8 @@
-import React from "react"
-import "tui-chart/dist/tui-chart.css"
-import { MapChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import React from "react";
+import "tui-chart/dist/tui-chart.css";
+import { MapChart } from "@toast-ui/react-chart";
+import TuiChart from "tui-chart";
+import "./toastui.scss";
 
 var theme = {
   chart: {
@@ -21,13 +21,13 @@ var theme = {
     },
   },
   series: {
-    startColor: "#556ee6",
+    startColor: "#ff6a01",
     endColor: "#34c38f",
     overColor: "#75b5aa",
     borderColor: "#F4511E",
   },
-}
-TuiChart.registerTheme("skoteTheme", theme)
+};
+TuiChart.registerTheme("skoteTheme", theme);
 
 const MapChartToast = () => {
   const data = {
@@ -229,7 +229,7 @@ const MapChartToast = () => {
         data: 5.6,
       },
     ],
-  }
+  };
 
   const options = {
     chart: {
@@ -243,11 +243,11 @@ const MapChartToast = () => {
     tooltip: {
       suffix: "°C",
     },
-  }
+  };
   return (
     <React.Fragment>
       <MapChart data={data} options={options} theme={theme} />
     </React.Fragment>
-  )
-}
-export default MapChartToast
+  );
+};
+export default MapChartToast;

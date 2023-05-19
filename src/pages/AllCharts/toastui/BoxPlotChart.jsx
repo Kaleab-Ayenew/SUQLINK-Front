@@ -1,52 +1,52 @@
-import React from "react"
-import "tui-chart/dist/tui-chart.css"
-import { BoxPlotChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import React from "react";
+import "tui-chart/dist/tui-chart.css";
+import { BoxPlotChart } from "@toast-ui/react-chart";
+import TuiChart from "tui-chart";
+import "./toastui.scss";
 
 const theme = {
   chart: {
     background: {
       color: "#fff",
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   title: {
-    color: "#8791af"
+    color: "#8791af",
   },
   xAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   yAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   plot: {
-    lineColor: "rgba(166, 176, 207, 0.1)"
+    lineColor: "rgba(166, 176, 207, 0.1)",
   },
   legend: {
     label: {
-      color: "#8791af"
-    }
+      color: "#8791af",
+    },
   },
   series: {
-    colors: ["#556ee6", "#34c38f"]
-  }
-}
-TuiChart.registerTheme("skoteTheme", theme)
+    colors: ["#ff6a01", "#34c38f"],
+  },
+};
+TuiChart.registerTheme("skoteTheme", theme);
 
-const BoxPlotChartToast = props => {
+const BoxPlotChartToast = (props) => {
   const data = {
     categories: ["Budget", "Income", "Expenses", "Debt"],
     series: [
@@ -75,7 +75,7 @@ const BoxPlotChartToast = props => {
         outliers: [[1, 14000]],
       },
     ],
-  }
+  };
 
   const options = {
     chart: {
@@ -95,8 +95,8 @@ const BoxPlotChartToast = props => {
     legend: {
       align: "bottom",
     },
-  }
+  };
 
-  return <BoxPlotChart data={data} options={options} theme={theme} />
-}
-export default BoxPlotChartToast
+  return <BoxPlotChart data={data} options={options} theme={theme} />;
+};
+export default BoxPlotChartToast;

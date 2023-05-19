@@ -1,54 +1,54 @@
-import React from "react"
+import React from "react";
 
-import "tui-chart/dist/tui-chart.css"
-import { LineChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import "tui-chart/dist/tui-chart.css";
+import { LineChart } from "@toast-ui/react-chart";
+import TuiChart from "tui-chart";
+import "./toastui.scss";
 
 const theme = {
   chart: {
     background: {
       color: "#fff",
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   title: {
-    color: "#8791af"
+    color: "#8791af",
   },
   xAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   yAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   plot: {
-    lineColor: "rgba(166, 176, 207, 0.1)"
+    lineColor: "rgba(166, 176, 207, 0.1)",
   },
   legend: {
     label: {
-      color: "#8791af"
-    }
+      color: "#8791af",
+    },
   },
   series: {
-    colors: ["#f46a6a", "#34c38f", "#556ee6"]
-  }
-}
+    colors: ["#f46a6a", "#34c38f", "#ff6a01"],
+  },
+};
 
-TuiChart.registerTheme("skoteTheme", theme)
+TuiChart.registerTheme("skoteTheme", theme);
 
-const LineChartToast = props => {
+const LineChartToast = (props) => {
   const data = {
     categories: ["June", "July", "Aug", "Sep", "Oct", "Nov"],
     series: [
@@ -65,7 +65,7 @@ const LineChartToast = props => {
         data: [900, 6000, 1000, 9000, 3000, 1000],
       },
     ],
-  }
+  };
 
   const options = {
     chart: {
@@ -87,12 +87,12 @@ const LineChartToast = props => {
     tooltip: {
       suffix: "°C",
     },
-  }
+  };
 
   return (
     <React.Fragment>
       <LineChart data={data} options={options} />
     </React.Fragment>
-  )
-}
-export default LineChartToast
+  );
+};
+export default LineChartToast;

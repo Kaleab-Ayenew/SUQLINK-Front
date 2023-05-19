@@ -8,45 +8,45 @@ const theme = {
   chart: {
     background: {
       color: "#fff",
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   title: {
-    color: "#8791af"
+    color: "#8791af",
   },
   xAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   yAxis: {
     title: {
-      color: "#8791af"
+      color: "#8791af",
     },
     label: {
-      color: "#8791af"
+      color: "#8791af",
     },
-    tickColor: "#8791af"
+    tickColor: "#8791af",
   },
   plot: {
-    lineColor: "rgba(166, 176, 207, 0.1)"
+    lineColor: "rgba(166, 176, 207, 0.1)",
   },
   legend: {
     label: {
-      color: "#8791af"
-    }
+      color: "#8791af",
+    },
   },
   series: {
-    colors: ["#556ee6", "#34c38f", "#f1b44c", "#f46a6a"]
-  }
+    colors: ["#ff6a01", "#34c38f", "#f1b44c", "#f46a6a"],
+  },
 };
-TuiChart.registerTheme("skoteTheme", theme);
+TuiChart.registerTheme("BlackStormTheme", theme);
 
-const RadialChartToast = props => {
+const RadialChartToast = (props) => {
   const data = {
     categories: ["Jan", "Feb", "Mar", "April", "May", "Jun"],
     series: [

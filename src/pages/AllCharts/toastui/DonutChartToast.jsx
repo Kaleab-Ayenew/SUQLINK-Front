@@ -1,41 +1,41 @@
-import React from "react"
-import "tui-chart/dist/tui-chart.css"
-import { PieChart } from "@toast-ui/react-chart"
-import TuiChart from "tui-chart"
-import "./toastui.scss"
+import React from "react";
+import "tui-chart/dist/tui-chart.css";
+import { PieChart } from "@toast-ui/react-chart";
+import TuiChart from "tui-chart";
+import "./toastui.scss";
 
 const theme = {
   chart: {
     background: {
       color: "#fff",
-      opacity: 0
-    }
+      opacity: 0,
+    },
   },
   title: {
-    color: "#8791af"
+    color: "#8791af",
   },
 
   plot: {
-    lineColor: "rgba(166, 176, 207, 0.1)"
+    lineColor: "rgba(166, 176, 207, 0.1)",
   },
   legend: {
     label: {
-      color: "#8791af"
-    }
+      color: "#8791af",
+    },
   },
   series: {
     series: {
-      colors: ["#556ee6", "#34c38f", "#f46a6a", "#50a5f1", "#f1b44c"]
+      colors: ["#ff6a01", "#34c38f", "#f46a6a", "#50a5f1", "#f1b44c"],
     },
     label: {
       color: "#fff",
-      fontFamily: "sans-serif"
-    }
-  }
-}
-TuiChart.registerTheme("skoteTheme", theme)
+      fontFamily: "sans-serif",
+    },
+  },
+};
+TuiChart.registerTheme("skoteTheme", theme);
 
-const DonutChartToast = props => {
+const DonutChartToast = (props) => {
   const data = {
     categories: ["Browser"],
     series: [
@@ -60,7 +60,7 @@ const DonutChartToast = props => {
         data: 10.35,
       },
     ],
-  }
+  };
 
   const options = {
     chart: {
@@ -70,10 +70,10 @@ const DonutChartToast = props => {
       format: function (value, chartType, areaType, valuetype, legendName) {
         if (areaType === "makingSeriesLabel") {
           // formatting at series area
-          value = value + "%"
+          value = value + "%";
         }
 
-        return value
+        return value;
       },
     },
     series: {
@@ -86,12 +86,12 @@ const DonutChartToast = props => {
     legend: {
       align: "bottom",
     },
-  }
+  };
 
   return (
     <React.Fragment>
       <PieChart data={data} options={options} theme={theme} />
     </React.Fragment>
-  )
-}
-export default DonutChartToast
+  );
+};
+export default DonutChartToast;
