@@ -38,8 +38,8 @@ const SocialLink = () => {
                   Connect your Facebook Page
                 </CardTitle>
                 <CardText>
-                  With supporting text below as a natural lead-in to additional
-                  content.
+                  Connect your Facebook account to start posting automatically
+                  to facebook.
                 </CardText>
                 {/* <Link to="#" className="btn btn-primary">
                   Login with Facebook
@@ -47,7 +47,8 @@ const SocialLink = () => {
                 <FacebookLogin
                   appId="897403791338730"
                   autoLoad={true}
-                  //   fields="name,email,picture"
+                  scope="pages_manage_posts"
+                  fields="name"
                   callback={responseFacebook}
                 />
                 ,
