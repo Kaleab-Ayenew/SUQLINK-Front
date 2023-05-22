@@ -54,7 +54,7 @@ const SocialLink = () => {
                   callback={responseFacebook}
                   redirectUri="https://pc-dash.blackstormtech.com/product-dash"
                 /> */}
-                <LoginSocialFacebook
+                {/* <LoginSocialFacebook
                   isOnlyGetToken
                   appId={"897403791338730"}
                   onLoginStart={() => {
@@ -67,8 +67,8 @@ const SocialLink = () => {
                     console.log(err);
                   }}
                 >
-                  {/* <FacebookLoginButton /> */}
-                </LoginSocialFacebook>
+                  {<FacebookLoginButton />}
+                </LoginSocialFacebook> */}
               </Card>
             </Col>
           </div>
