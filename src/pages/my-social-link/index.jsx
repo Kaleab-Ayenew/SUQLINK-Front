@@ -50,6 +50,7 @@ const SocialLink = () => {
                   scope="pages_manage_posts"
                   fields="name"
                   callback={responseFacebook}
+                  redirectUri="https://pc-dash.blackstormtech.com/product-dash"
                 />
                 ,
               </Card>
