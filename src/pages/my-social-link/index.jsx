@@ -2,7 +2,6 @@ import React from "react";
 import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { FacebookLoginButton } from "react-social-login-buttons";
-import FacebookLogin from "react-facebook-login";
 import {
   Container,
   Row,
@@ -31,17 +30,6 @@ import {
 } from "reactjs-social-login";
 
 // CUSTOMIZE ANY UI BUTTON
-import {
-  FacebookLoginButton,
-  GoogleLoginButton,
-  GithubLoginButton,
-  AmazonLoginButton,
-  InstagramLoginButton,
-  LinkedInLoginButton,
-  MicrosoftLoginButton,
-  TwitterLoginButton,
-  AppleLoginButton,
-} from "react-social-login-buttons";
 
 import { ReactComponent as PinterestLogo } from "./assets/pinterest.svg";
 import { ReactComponent as TiktokLogo } from "./assets/tiktok.svg";
@@ -98,7 +86,9 @@ const SocialLink = () => {
                   onReject={(err) => {
                     console.log(err);
                   }}
-                ></LoginSocialFacebook>
+                >
+                  <FacebookLoginButton />
+                </LoginSocialFacebook>
               </Card>
             </Col>
           </div>
