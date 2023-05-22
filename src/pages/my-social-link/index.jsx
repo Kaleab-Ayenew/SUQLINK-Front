@@ -67,7 +67,7 @@ const SocialLink = () => {
                     console.log(err);
                   }}
                 >
-                  <FacebookLoginButton />
+                  {/* <FacebookLoginButton /> */}
                 </LoginSocialFacebook>
               </Card>
             </Col>
