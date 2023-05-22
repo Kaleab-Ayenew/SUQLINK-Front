@@ -12,35 +12,15 @@ import {
   CardText,
 } from "reactstrap";
 
-//Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
-import {
-  LoginSocialGoogle,
-  LoginSocialAmazon,
-  LoginSocialFacebook,
-  LoginSocialGithub,
-  LoginSocialInstagram,
-  LoginSocialLinkedin,
-  LoginSocialMicrosoft,
-  LoginSocialPinterest,
-  LoginSocialTwitter,
-  LoginSocialApple,
-  LoginSocialTiktok,
-} from "reactjs-social-login";
+import { LoginSocialFacebook } from "reactjs-social-login";
 
-// CUSTOMIZE ANY UI BUTTON
-
-import { ReactComponent as PinterestLogo } from "./assets/pinterest.svg";
-import { ReactComponent as TiktokLogo } from "./assets/tiktok.svg";
-
-// REDIRECT URL must be same with URL where the (reactjs-social-login) components is locate
-// MAKE SURE the (reactjs-social-login) components aren't unmounted or destroyed before the ask permission dialog closes
 const REDIRECT_URI = window.location.href;
 
 const SocialLink = () => {
   //meta title
-  document.title = "Social Link | Balck Storm Admin Dashboard";
+  document.title = "Social Link | Black Storm Admin Dashboard";
   const [login, setLogin] = React.useState(false);
   const [data, setData] = React.useState({});
   const [picture, setPicture] = React.useState("");
