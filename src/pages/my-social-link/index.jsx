@@ -1,5 +1,7 @@
 import React from "react";
+import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
+import { FacebookLoginButton } from "react-social-login-buttons";
 import FacebookLogin from "react-facebook-login";
 import {
   Container,
@@ -13,6 +15,40 @@ import {
 
 //Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb";
+
+import {
+  LoginSocialGoogle,
+  LoginSocialAmazon,
+  LoginSocialFacebook,
+  LoginSocialGithub,
+  LoginSocialInstagram,
+  LoginSocialLinkedin,
+  LoginSocialMicrosoft,
+  LoginSocialPinterest,
+  LoginSocialTwitter,
+  LoginSocialApple,
+  LoginSocialTiktok,
+} from "reactjs-social-login";
+
+// CUSTOMIZE ANY UI BUTTON
+import {
+  FacebookLoginButton,
+  GoogleLoginButton,
+  GithubLoginButton,
+  AmazonLoginButton,
+  InstagramLoginButton,
+  LinkedInLoginButton,
+  MicrosoftLoginButton,
+  TwitterLoginButton,
+  AppleLoginButton,
+} from "react-social-login-buttons";
+
+import { ReactComponent as PinterestLogo } from "./assets/pinterest.svg";
+import { ReactComponent as TiktokLogo } from "./assets/tiktok.svg";
+
+// REDIRECT URL must be same with URL where the (reactjs-social-login) components is locate
+// MAKE SURE the (reactjs-social-login) components aren't unmounted or destroyed before the ask permission dialog closes
+const REDIRECT_URI = window.location.href;
 
 const SocialLink = () => {
   //meta title
@@ -44,13 +80,25 @@ const SocialLink = () => {
                 {/* <Link to="#" className="btn btn-primary">
                   Login with Facebook
                 </Link> */}
-                <FacebookLogin
+                {/* <FacebookLogin
                   appId="1330933267773992"
                   fields="name"
                   callback={responseFacebook}
                   redirectUri="https://pc-dash.blackstormtech.com/product-dash"
-                />
-                ,
+                /> */}
+                <LoginSocialFacebook
+                  isOnlyGetToken
+                  appId={"897403791338730"}
+                  onLoginStart={() => {
+                    console.log("Login has started");
+                  }}
+                  onResolve={(data) => {
+                    console.log(data);
+                  }}
+                  onReject={(err) => {
+                    console.log(err);
+                  }}
+                ></LoginSocialFacebook>
               </Card>
             </Col>
           </div>

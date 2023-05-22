@@ -89,6 +89,7 @@
     "react-table": "^7.8.0",
     "react-time-picker": "^5.1.0",
     "react-toast-notifications": "^2.5.1",
+    "reactjs-social-login": "^2.6.2",
     "reactstrap": "^9.1.5",
     "recharts": "^2.2.0",
     "redux": "^4.2.0",
