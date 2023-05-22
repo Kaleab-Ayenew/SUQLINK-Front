@@ -44,13 +44,20 @@ const SocialLink = () => {
                 {/* <Link to="#" className="btn btn-primary">
                   Login with Facebook
                 </Link> */}
-                <FacebookLogin
+                {/* <FacebookLogin
                   appId="897403791338730"
-                  fields="name"
                   callback={responseFacebook}
                   redirectUri="https://pc-dash.blackstormtech.com/product-dash"
-                />
-                ,
+                /> */}
+                <div
+                  class="fb-login-button"
+                  data-width="90"
+                  data-size=""
+                  data-button-type=""
+                  data-layout=""
+                  data-auto-logout-link="false"
+                  data-use-continue-as="false"
+                ></div>
               </Card>
             </Col>
           </div>
