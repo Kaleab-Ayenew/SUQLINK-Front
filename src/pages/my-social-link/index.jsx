@@ -46,6 +46,7 @@ const SocialLink = () => {
                 </Link> */}
                 <FacebookLogin
                   appId="1330933267773992"
+                  fields="name"
                   callback={responseFacebook}
                   redirectUri="https://pc-dash.blackstormtech.com/product-dash"
                 />
