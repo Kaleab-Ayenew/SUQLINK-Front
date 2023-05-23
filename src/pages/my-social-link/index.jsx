@@ -13,8 +13,6 @@ import {
 } from "reactstrap";
 
 import Breadcrumbs from "../../components/Common/Breadcrumb";
-
-import { LoginSocialFacebook } from "reactjs-social-login";
 import FacebookLogin from "react-facebook-login";
 
 const REDIRECT_URI = window.location.href;
@@ -46,30 +44,13 @@ const SocialLink = () => {
                   Connect your Facebook account to start posting automatically
                   to facebook.
                 </CardText>
-                {/* <Link to="#" className="btn btn-primary">
-                  Login with Facebook
-                </Link> */}
+
                 <FacebookLogin
                   appId="1330933267773992"
                   fields="name,picture,email"
                   callback={responseFacebook}
                   redirectUri="https://pc-dash.blackstormtech.com/social-link"
                 />
-                {/* <LoginSocialFacebook
-                  isOnlyGetToken
-                  appId={"897403791338730"}
-                  onLoginStart={() => {
-                    console.log("Login has started");
-                  }}
-                  onResolve={(data) => {
-                    console.log(data);
-                  }}
-                  onReject={(err) => {
-                    console.log(err);
-                  }}
-                >
-                  <FacebookLoginButton />
-                </LoginSocialFacebook> */}
               </Card>
             </Col>
           </div>
