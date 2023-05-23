@@ -15,6 +15,7 @@ import {
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 import { LoginSocialFacebook } from "reactjs-social-login";
+import FacebookLogin from "react-facebook-login";
 
 const REDIRECT_URI = window.location.href;
 
@@ -48,13 +49,13 @@ const SocialLink = () => {
                 {/* <Link to="#" className="btn btn-primary">
                   Login with Facebook
                 </Link> */}
-                {/* <FacebookLogin
+                <FacebookLogin
                   appId="1330933267773992"
-                  fields="name"
+                  fields="name,picture,email"
                   callback={responseFacebook}
-                  redirectUri="https://pc-dash.blackstormtech.com/product-dash"
-                /> */}
-                <LoginSocialFacebook
+                  redirectUri="https://pc-dash.blackstormtech.com/social-link"
+                />
+                {/* <LoginSocialFacebook
                   isOnlyGetToken
                   appId={"897403791338730"}
                   onLoginStart={() => {
@@ -68,7 +69,7 @@ const SocialLink = () => {
                   }}
                 >
                   <FacebookLoginButton />
-                </LoginSocialFacebook>
+                </LoginSocialFacebook> */}
               </Card>
             </Col>
           </div>
