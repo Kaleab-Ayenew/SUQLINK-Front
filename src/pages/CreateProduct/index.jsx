@@ -23,7 +23,6 @@ import NotificationCard from "./NotificationCard";
 // My Custom Components
 import RenderForm from "./RenderForm";
 import { formFields } from "./formFields";
-import { socialConfirmFields } from "./formFields";
 
 import DeleteModal from "./DeleteModal";
 import { CORE_BACKEND_URL } from "../../helpers/url_helper";
@@ -35,13 +34,15 @@ import "toastr/build/toastr.min.css";
 
 import "./style/index.css";
 
-const AKalish = (props) => {
+const CreateProduct = (props) => {
   document.title = `${
     props.edit ? "Edit" : "Add"
   } Products | Balck Storm Admin Dashboard`;
   const navigate = useNavigate();
   const [editProductData, setEditProductData] = React.useState({});
-  const [editorState, setEditorState] = React.useState({ desc: "" });
+  const [editorState, setEditorState] = React.useState({
+    product_description: "",
+  });
   const [formFieldData, setFormFieldData] = React.useState(formFields);
   const [showDelete, setShowDelete] = React.useState(false);
   const [deleteMsg, setDeleteMsg] = React.useState("");
@@ -54,14 +55,14 @@ const AKalish = (props) => {
 
   function deleteButtonClick() {
     setDeleteMsg(
-      `Are you sure you want to delete product:\n ${editProductData.title}`
+      `Are you sure you want to delete product:\n ${editProductData.product_name}`
     );
     setShowDelete(true);
   }
 
   function handleProductDelete(e) {
-    const slug = editProductData.slug;
-    fetch(`${CORE_BACKEND_URL}/ecom_full/static/products/${slug}/`, {
+    const productId = editProductData.product_id;
+    fetch(`${CORE_BACKEND_URL}/suqlink/products/${productId}/`, {
       method: "DELETE",
       headers: {
         Authorization: `Token ${
@@ -71,14 +72,16 @@ const AKalish = (props) => {
     })
       .then((rsp) => {
         if (rsp.status === 204) {
-          console.log(`Product ${editProductData.title} has been deleted.`);
+          console.log(
+            `Product ${editProductData.product_name} has been deleted.`
+          );
           setShowDelete(false);
           setFormFieldData(formFields);
           toastr.success(
             "Product has been deleted succesfully.",
             "Notification"
           );
-          navigate("/product-list");
+          navigate("/create");
         }
       })
       .catch((err) => console.error(err));
@@ -95,7 +98,7 @@ const AKalish = (props) => {
     var json = JSON.stringify(object);
     console.log(json);
     setLoading(true);
-    fetch(`${CORE_BACKEND_URL}/ecom_full/static/products/new/`, {
+    fetch(`${CORE_BACKEND_URL}/suqlink/products/new/`, {
       method: "POST",
       body: f,
       headers: {
@@ -111,7 +114,7 @@ const AKalish = (props) => {
             "Product has been created successfully",
             "Notification"
           );
-          setEditorState({ desc: "" });
+          setEditorState({ product_description: "" });
           e.target.reset();
           return rsp.json();
         } else {
@@ -119,8 +122,9 @@ const AKalish = (props) => {
           rsp.json().then((data) => {
             const errMsg = [];
             Object.keys(data).forEach((k) => errMsg.push(`${k}:\n${data[k]}`));
-            const errTxt = errMsg.join("\n *** \n");
-            toastr.error(errTxt, "Error");
+            errMsg.forEach((errTxt) => {
+              toastr.error(errTxt, "Error");
+            });
           });
         }
       })
@@ -141,14 +145,20 @@ const AKalish = (props) => {
       f.append(name, value);
     }
     var object = {};
-    f.forEach((value, key) => (object[key] = value));
+    // f.forEach((value, key) => (object[key] = value));
+    f.forEach((value, key) => {
+      console.log(value, key);
+      if (value.type === "application/octet-stream" && value.size === 0) {
+        f.delete(key);
+      }
+    });
     var json = JSON.stringify(object);
-    console.log(json);
+    console.log("How do I do that?", json);
 
-    const slug = props.router.params.slug;
+    const productId = props.router.params.product_id;
     setLoading(true);
-    fetch(`${CORE_BACKEND_URL}/ecom_full/static/products/${slug}/`, {
-      method: "PUT",
+    fetch(`${CORE_BACKEND_URL}/suqlink/products/${productId}/`, {
+      method: "PATCH",
       body: f,
       headers: {
         Authorization: `Token ${
@@ -164,8 +174,9 @@ const AKalish = (props) => {
           rsp.json().then((data) => {
             const errMsg = [];
             Object.keys(data).forEach((k) => errMsg.push(`${k}:\n${data[k]}`));
-            const errTxt = errMsg.join("\n *** \n");
-            toastr.error(errTxt, "Error");
+            errMsg.forEach((errTxt) => {
+              toastr.error(errTxt, "Error");
+            });
           });
         }
       })
@@ -181,9 +192,14 @@ const AKalish = (props) => {
   }
 
   React.useLayoutEffect(() => {
+    document.addEventListener("wheel", function (event) {
+      if (document.activeElement.type === "number") {
+        document.activeElement.blur();
+      }
+    });
     if (props.edit === true) {
-      const productSlug = props.router.params.slug;
-      fetch(`${CORE_BACKEND_URL}/ecom_full/static/products/${productSlug}/`, {
+      const productId = props.router.params.product_id;
+      fetch(`${CORE_BACKEND_URL}/suqlink/products/${productId}/`, {
         method: "GET",
         headers: {
           Authorization: `Token ${
@@ -224,12 +240,12 @@ const AKalish = (props) => {
                   <CardTitle className="h4">
                     {!props.edit
                       ? "Create a new Product for Your Store"
-                      : `Edit ${editProductData.title}`}
+                      : `Edit "${editProductData.product_name}"`}
                   </CardTitle>
                   <p className="card-title-desc">
                     {!props.edit
                       ? "You can add your products with this form"
-                      : `You are editing product: ${editProductData.title}`}
+                      : `You are editing product: ${editProductData.product_name}`}
                   </p>
                   <Form onSubmit={props.edit ? handleEditSubmit : handleSubmit}>
                     <EditorContext.Provider
@@ -241,11 +257,6 @@ const AKalish = (props) => {
                       ]}
                     >
                       <RenderForm fieldData={formFieldData} />
-                      {props.edit ? (
-                        ""
-                      ) : (
-                        <RenderForm fieldData={socialConfirmFields} />
-                      )}
                     </EditorContext.Provider>
                     <div className="d-flex flex-wrap gap-2">
                       <button
@@ -288,4 +299,4 @@ const AKalish = (props) => {
   );
 };
 
-export default withRouter(AKalish);
+export default withRouter(CreateProduct);

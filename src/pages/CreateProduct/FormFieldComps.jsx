@@ -101,6 +101,7 @@ export function FileField(props) {
         id={props.id}
         name={props.name}
         required={!props.not_required}
+        accept={props.accept}
       />
     </div>
   );

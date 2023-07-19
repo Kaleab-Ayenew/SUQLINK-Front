@@ -145,45 +145,24 @@ const SidebarContent = (props) => {
         <div id="sidebar-menu">
           <ul className="metismenu list-unstyled" id="side-menu">
             {/* Product Admin Menu */}
-            <li className="menu-title">Product Admin</li>
-            <li>
-              <Link className="has-arrow" to="#">
-                <i class="fas fa-shopping-cart"></i>
-                <span>{props.t("Manage Products")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/products">
-                    <i class="fas fa-cart-plus"></i>
-                    <span>{props.t("Add Products")}</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/product-dash">
-                    <i class="fas fa-chart-line"></i>
-                    <span>{props.t("Products Dashboard")}</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/product-list">
-                    <i class="fas fa-clipboard-list"></i>
-                    <span>{props.t("Products List")}</span>
-                  </Link>
-                </li>
-              </ul>
-            </li>
-
-            {/* Social Media Manager Menu */}
             <li className="menu-title">Social Media Manager</li>
             <li>
               <Link className="has-arrow" to="#">
                 <i class="bx bx-share-alt"></i>
-                <span>{props.t("Social Accounts")}</span>
+                <span>{props.t("Manage Accounts")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                 <li>
-                  <Link to="/social-link">
-                    <span>{props.t("Connect a Social Account")}</span>
+                  <Link to="/create-post">
+                    <i class="fas fa-cart-plus"></i>
+                    <span>{props.t("Create a Post")}</span>
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to="/connect-accounts">
+                    <i class="fas fa-cart-plus"></i>
+                    <span>{props.t("Connect Accounts")}</span>
                   </Link>
                 </li>
               </ul>

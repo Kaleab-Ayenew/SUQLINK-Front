@@ -1,6 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-
 import {
   Row,
   Col,
@@ -8,32 +6,40 @@ import {
   Card,
   Alert,
   Container,
-  Form,
   Input,
-  FormFeedback,
   Label,
+  Form,
 } from "reactstrap";
 
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import withRouter from "../../components/Common/withRouter";
+//redux
+import { useDispatch } from "react-redux";
 
-// import RenderForm from "../post-create/RenderForm";
-import { CORE_BACKEND_URL } from "../../helpers/url_helper";
+import { Link } from "react-router-dom";
 
 // import images
-import profile from "../../assets/images/profile-img.png";
-import logo from "../../assets/images/logo.svg";
+import profileImg from "../../assets/images/profile-img.png";
+import logoImg from "../../assets/images/logo.svg";
 
-function MyLogin(props) {
-  const [error, setError] = React.useState();
-  const [loading, setLoading] = React.useState(false);
+// My Imports
+import { CORE_BACKEND_URL } from "../../helpers/url_helper";
+import { useNavigate } from "react-router-dom";
+
+const Register = (props) => {
+  document.title =
+    "Register | BlackStorm - Vite React Admin & Dashboard Template";
+
   const navigate = useNavigate();
+
+  // Component States
+  const [registrationError, setRegistrationError] = React.useState();
+  const [registerSuccess, setRegisterSuccess] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+
   function handleSubmit(e) {
     e.preventDefault();
     const fdata = new FormData(e.target);
     setLoading(true);
-    fetch(`${CORE_BACKEND_URL}/suqlink/login/`, {
+    fetch(`${CORE_BACKEND_URL}/suqlink/register/`, {
       method: "POST",
       body: fdata,
     })
@@ -41,8 +47,11 @@ function MyLogin(props) {
         setLoading(false);
         if (rsp.ok) {
           rsp.json().then((data) => {
-            localStorage.setItem("authUser", JSON.stringify(data));
-            navigate("/create-post");
+            localStorage.setItem("regInfo", JSON.stringify(data));
+            setRegisterSuccess(true);
+            setTimeout(() => {
+              navigate(`/verify-email/${data.temp_data_uuid}`);
+            }, 3000);
           });
         } else {
           rsp.json().then((data) => {
@@ -50,7 +59,7 @@ function MyLogin(props) {
             const errMsg = [];
             Object.keys(data).forEach((k) => errMsg.push(`${k}:\n${data[k]}`));
             const errTxt = errMsg.join("\n *** \n");
-            setError(errTxt);
+            setRegistrationError(errTxt);
           });
         }
       })
@@ -60,6 +69,7 @@ function MyLogin(props) {
         setError(err.message);
       });
   }
+
   return (
     <React.Fragment>
       <div className="home-btn d-none d-sm-block">
@@ -74,24 +84,24 @@ function MyLogin(props) {
               <Card className="overflow-hidden">
                 <div className="bg-primary bg-soft">
                   <Row>
-                    <Col xs={7}>
+                    <Col className="col-7">
                       <div className="text-primary p-4">
-                        <h5 className="text-primary">Welcome Back!</h5>
-                        <p>Sign in to continue to SUQLINK</p>
+                        <h5 className="text-primary">Free Register</h5>
+                        <p>Get your free SUQLINK account now.</p>
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
-                      <img src={profile} alt="" className="img-fluid" />
+                      <img src={profileImg} alt="" className="img-fluid" />
                     </Col>
                   </Row>
                 </div>
                 <CardBody className="pt-0">
                   <div>
-                    <Link to="/" className="auth-logo-light">
+                    <Link to="/">
                       <div className="avatar-md profile-user-wid mb-4">
                         <span className="avatar-title rounded-circle bg-light">
                           <img
-                            src={logo}
+                            src={logoImg}
                             alt=""
                             className="rounded-circle"
                             height="60"
@@ -101,66 +111,56 @@ function MyLogin(props) {
                     </Link>
                   </div>
                   <div className="p-2">
-                    <Form
-                      className="form-horizontal"
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        handleSubmit(e);
-                      }}
-                    >
-                      {error ? <Alert color="danger">{error}</Alert> : null}
+                    <Form className="form-horizontal" onSubmit={handleSubmit}>
+                      {registerSuccess ? (
+                        <Alert color="success">
+                          Register User Successfully
+                        </Alert>
+                      ) : null}
+
+                      {registrationError ? (
+                        <Alert color="danger">{registrationError}</Alert>
+                      ) : null}
 
                       <div className="mb-3">
-                        <Label className="form-label">Username</Label>
+                        <Label className="form-label">Email</Label>
                         <Input
-                          name="username"
+                          id="seller_email"
+                          name="seller_email"
                           className="form-control"
-                          placeholder="Enter username"
-                          type="text"
+                          placeholder="Enter email"
+                          type="email"
                         />
                       </div>
 
                       <div className="mb-3">
                         <Label className="form-label">Password</Label>
                         <Input
-                          name="password"
+                          name="seller_password"
                           type="password"
                           placeholder="Enter Password"
                         />
                       </div>
 
-                      <div className="form-check">
-                        <input
-                          type="checkbox"
-                          className="form-check-input"
-                          id="customControlInline"
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="customControlInline"
-                        >
-                          Remember me
-                        </label>
-                      </div>
-
-                      <div className="mt-3 d-grid">
+                      <div className="mt-4">
                         <button
-                          className="btn btn-primary btn-block"
+                          className="btn btn-primary btn-block "
                           type="submit"
-                          disabled={loading}
                         >
                           {loading ? (
                             <i className="bx bx-loader bx-spin font-size-16 align-middle me-2"></i>
                           ) : null}
-                          Log In
+                          Register
                         </button>
                       </div>
 
                       <div className="mt-4 text-center">
-                        <Link to="/forgot-password" className="text-muted">
-                          <i className="mdi mdi-lock me-1" />
-                          Forgot your password?
-                        </Link>
+                        <p className="mb-0">
+                          By registering you agree to the SUQLINK{" "}
+                          <Link to="#" className="text-primary">
+                            Terms of Use
+                          </Link>
+                        </p>
                       </div>
                     </Form>
                   </div>
@@ -168,15 +168,16 @@ function MyLogin(props) {
               </Card>
               <div className="mt-5 text-center">
                 <p>
-                  Don&#39;t have an account ?{" "}
-                  <Link to="/register" className="fw-medium text-primary">
+                  Already have an account ?{" "}
+                  <Link to="/login" className="font-weight-medium text-primary">
                     {" "}
-                    Signup now{" "}
+                    Login
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} SUQLINK.{" "}
-                  <i className="mdi mdi-heart text-danger" />
+                  © {new Date().getFullYear()} SUQLINK.COM Crafted with{" "}
+                  <i className="mdi mdi-heart text-danger" /> by Black Storm
+                  Technologies
                 </p>
               </div>
             </Col>
@@ -185,6 +186,6 @@ function MyLogin(props) {
       </div>
     </React.Fragment>
   );
-}
+};
 
-export default withRouter(MyLogin);
+export default Register;

@@ -11,15 +11,21 @@ import { Badge } from "reactstrap";
 import DeleteModal from "../../components/Common/DeleteModal";
 import { CORE_BACKEND_URL } from "../../helpers/url_helper";
 
-function ProductDash(props) {
+function SellerDash(props) {
   document.title = "Product Dashboard | Balck Storm Admin Dashboard";
 
-  const [orderData, setOrderData] = React.useState([]);
+  const [statData, setStatData] = React.useState({ product_stats: [] });
   const [cardData, setCardData] = React.useState({});
   const [graphPeriod, setGraphPeriod] = React.useState("day");
+  let all_sales = [];
+  statData.product_stats.forEach((key, product) => {
+    product.product_sales.forEach((key, val) => {
+      all_sales.push(val);
+    });
+  });
 
   React.useLayoutEffect(() => {
-    fetch(`${CORE_BACKEND_URL}/ecom_full/static/orders/`, {
+    fetch(`${CORE_BACKEND_URL}/suqlink/stats/`, {
       headers: {
         Authorization: `Token ${
           JSON.parse(localStorage.getItem("authUser")).token
@@ -28,20 +34,8 @@ function ProductDash(props) {
     })
       .then((rsp) => rsp.json())
       .then((data) => {
-        console.log(data);
-        setOrderData(data);
-      });
-    fetch(`${CORE_BACKEND_URL}/ecom_full/static/get-sales-data/`, {
-      headers: {
-        Authorization: `Token ${
-          JSON.parse(localStorage.getItem("authUser")).token
-        }`,
-      },
-    })
-      .then((rsp) => rsp.json())
-      .then((data) => {
-        console.log(data);
-        setCardData(data);
+        console.log("Stat data", data);
+        setStatData(data);
       });
   }, []);
 
@@ -56,8 +50,8 @@ function ProductDash(props) {
     <div className="page-content">
       <Container fluid={true}>
         <Breadcrumbs
-          title="Product Dashboard"
-          breadcrumbItem={"Product Info Dashboard"}
+          title="Sale Statistics"
+          breadcrumbItem={"Sales Info Dashboard"}
         />
         <Row>
           <Col>
@@ -93,7 +87,7 @@ function ProductDash(props) {
                 <div id="line-chart" className="e-chart">
                   <Line
                     graphPeriod={graphPeriod}
-                    orderData={orderData}
+                    statData={statData}
                     dataColors='["--bs-success"]'
                   />
                 </div>
@@ -101,11 +95,11 @@ function ProductDash(props) {
             </Card>
           </Col>
         </Row>
-        <RevenueCard cardData={cardData} graphPeriod={graphPeriod} />
-        <TableComp orderData={orderData} />
+        <RevenueCard statData={statData} graphPeriod={graphPeriod} />
+        <TableComp statData={statData} />
       </Container>
     </div>
   );
 }
 
-export default ProductDash;
+export default SellerDash;

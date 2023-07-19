@@ -4,22 +4,17 @@ import { Container, Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 function RevenueCard(props) {
   const data = [
     {
-      title: `Past ${props.graphPeriod} Revenue`,
+      title: `Total Sales`,
       description:
-        props.cardData.total_sales !== null ||
-        props.cardData.total_sales !== undefined
-          ? `ETB ${props.cardData.total_sales}.00`
+        props.statData.total_sales !== null ||
+        props.statData.total_sales !== undefined
+          ? `${props.statData.total_sales}`
           : "0",
       iconClass: "bx bx-euro",
     },
     {
-      title: `Past ${props.graphPeriod} Orders`,
-      description: props.cardData.total_orders || "0",
-      iconClass: "bx bx-euro",
-    },
-    {
-      title: "All Orders",
-      description: props.cardData.all_orders || "0",
+      title: `Total Income`,
+      description: props.statData.total_income || "0",
       iconClass: "bx bx-euro",
     },
   ];

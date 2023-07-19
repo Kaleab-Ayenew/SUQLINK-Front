@@ -14,10 +14,29 @@ import {
 import { PaymentStatus } from "./BillingStuff";
 
 function TableComp(props) {
-  const ordata = props.orderData;
-  const data = ordata.map((o) => {
-    const t = new Date(o.order_time);
-    const newObj = { ...o, order_time: t.toLocaleDateString() };
+  const stdata = props.statData;
+  const tableNames = {
+    sale_timestamp: "Sale Time",
+    completed: "Payment Status",
+    sold_product: "Product Link",
+    product_name: "Product Name",
+  };
+  let all_sales = [];
+  stdata.product_stats.forEach((product) => {
+    product.product_sales.forEach((val) => {
+      all_sales.push({
+        product_name: product.product_name,
+        ...val,
+        completed: val.completed ? "Completed" : "Waiting",
+      });
+    });
+  });
+  const data = all_sales.map((s) => {
+    const t = new Date(s.sale_timestamp);
+    const newObj = {
+      ...s,
+      sale_timestamp: t.toLocaleDateString(),
+    };
     return newObj;
   });
   function formatTitle(t) {
@@ -32,7 +51,7 @@ function TableComp(props) {
       <Col>
         <Card>
           <CardBody>
-            <CardTitle className="h4">Product Orders</CardTitle>
+            <CardTitle className="h4">Product Sales</CardTitle>
             {/* <CardSubtitle className="card-title-desc">
               
             </CardSubtitle> */}
@@ -42,17 +61,14 @@ function TableComp(props) {
                 <thead>
                   <tr>
                     {data[0] &&
-                      Object.keys(data[0]).map((k) => (
-                        <th>{formatTitle(k)}</th>
-                      ))}
+                      Object.keys(data[0]).map((k) => <th>{tableNames[k]}</th>)}
                   </tr>
                 </thead>
                 <tbody>
                   {data.map((order) => (
                     <tr>
                       {Object.values(order).map((val, index) => {
-                        console.log(val, index);
-                        return index === 0 ? <th>{val}</th> : <td>{val}</td>;
+                        return <td>{val}</td>;
                       })}
                     </tr>
                   ))}

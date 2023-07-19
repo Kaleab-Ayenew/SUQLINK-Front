@@ -1,11 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import mkcert from "vite-plugin-mkcert";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  server: { https: true },
+  plugins: [react(), mkcert()],
   esbuild: {
-    jsxFactory: 'h',
-    jsxFragment: 'Fragment'
-  }
-})
+    jsxFactory: "h",
+    jsxFragment: "Fragment",
+  },
+});

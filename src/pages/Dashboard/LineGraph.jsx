@@ -2,7 +2,7 @@ import React from "react";
 import ReactEcharts from "echarts-for-react";
 import getChartColorsArray from "../../components/Common/ChartsDynamicColor";
 
-const Line = ({ dataColors, orderData, graphPeriod }) => {
+const Line = ({ dataColors, statData, graphPeriod }) => {
   const lineEChartColors = getChartColorsArray(dataColors);
   const now = new Date();
 
@@ -14,18 +14,18 @@ const Line = ({ dataColors, orderData, graphPeriod }) => {
     year: now.getMonth(),
   };
 
-  function getTime(order, t) {
-    const otime = new Date(order.order_time);
-    console.log(otime, "This is the time");
+  function getTime(sale, t) {
+    const stime = new Date(sale.sale_timestamp);
+    console.log(stime, "This is the time");
     switch (t) {
       case "hour":
-        return [otime.getMinutes(), otime.getHours()];
+        return [stime.getMinutes(), stime.getHours()];
       case "day":
-        return [otime.getHours(), otime.getDate()];
+        return [stime.getHours(), stime.getDate()];
       case "month":
-        return [otime.getDate(), otime.getMonth()];
+        return [stime.getDate(), stime.getMonth()];
       case "year":
-        return [otime.getMonth(), otime.getYear()];
+        return [stime.getMonth(), stime.getYear()];
     }
   }
 
@@ -47,11 +47,18 @@ const Line = ({ dataColors, orderData, graphPeriod }) => {
   };
 
   const to_period = graphPeriodMap[graphPeriod];
-  let source_data = [["Time", "Orders"]];
+  let source_data = [["Time", "Sales"]];
+  let all_sales = [];
+  statData.product_stats.forEach((product) => {
+    product.product_sales.forEach((val) => {
+      all_sales.push({ ...val, product_name: product.product_name });
+    });
+  });
+  console.log("These are sales", all_sales);
   for (let i = 0; i <= to_period; i++) {
-    const s = orderData.filter((o) => {
-      const o_time = getTime(o, graphPeriod);
-      return o_time[0] === i;
+    const s = all_sales.filter((p) => {
+      const s_time = getTime(p, graphPeriod);
+      return s_time[0] === i;
     });
     source_data.push([
       `${graphPeriod === "year" ? valueMap["year"][i] : i}`,

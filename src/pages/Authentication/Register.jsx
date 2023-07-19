@@ -28,11 +28,16 @@ import { Link } from "react-router-dom";
 import profileImg from "../../assets/images/profile-img.png";
 import logoImg from "../../assets/images/logo.svg";
 
+// My Imports
+import { CORE_BACKEND_URL } from "../../helpers/url_helper";
+import { useNavigate } from "react-router-dom";
+
 const Register = (props) => {
   document.title =
     "Register | BlackStorm - Vite React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
@@ -49,7 +54,23 @@ const Register = (props) => {
       password: Yup.string().required("Please Enter Your Password"),
     }),
     onSubmit: (values) => {
-      dispatch(registerUser(values));
+      fetch(`${CORE_BACKEND_URL}/social-manager/sign-up/`, {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((rsp) => {
+        rsp.json().then((data) => {
+          if (rsp.ok) {
+            setUserData(data);
+            console.log(data);
+            navigate("/");
+          } else {
+            console.error(data);
+          }
+        });
+      });
     },
   });
 
