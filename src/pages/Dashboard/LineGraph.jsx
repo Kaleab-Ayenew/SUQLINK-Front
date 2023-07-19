@@ -9,8 +9,7 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
   const graphPeriodMap = {
     hour: now.getMinutes(),
     day: now.getHours(),
-    week: now.getDate(),
-    month: now.getDate(),
+    month: now.getDate() - 1,
     year: now.getMonth(),
   };
 
@@ -19,13 +18,24 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
     console.log(stime, "This is the time");
     switch (t) {
       case "hour":
-        return [stime.getMinutes(), stime.getHours()];
+        return [
+          stime.getMinutes(),
+          [
+            stime.getFullYear(),
+            stime.getMonth(),
+            stime.getDate(),
+            stime.getHours(),
+          ],
+        ];
       case "day":
-        return [stime.getHours(), stime.getDate()];
+        return [
+          stime.getHours(),
+          [stime.getFullYear(), stime.getMonth(), stime.getDate()],
+        ];
       case "month":
-        return [stime.getDate(), stime.getMonth()];
+        return [stime.getDate(), [stime.getFullYear(), stime.getMonth()]];
       case "year":
-        return [stime.getMonth(), stime.getYear()];
+        return [stime.getMonth(), [stime.getFullYear()]];
     }
   }
 
@@ -46,24 +56,60 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
     ],
   };
 
+  function getTimeLable(i, graphPeriod) {
+    const now = new Date();
+    switch (graphPeriod) {
+      case "year":
+        return valueMap.year[i];
+      case "month":
+        const currentMonth = valueMap.year[now.getMonth()];
+        return `${currentMonth} ${i + 1}`;
+      case "day":
+        return `${i} o'clock`;
+      case "hour":
+        const t = i < 10 ? `0${i}` : i;
+        const currentHour = now.getHours();
+        return `${currentHour}:${t}`;
+    }
+  }
+
+  function getTotalIncome(sales) {
+    let sum = 0;
+    sales.forEach((item) => (sum = sum + parseFloat(item.product_price)));
+    return sum * 0.8;
+  }
+
   const to_period = graphPeriodMap[graphPeriod];
-  let source_data = [["Time", "Sales"]];
+  let source_data = [["Time", "Revenue"]];
   let all_sales = [];
   statData.product_stats.forEach((product) => {
     product.product_sales.forEach((val) => {
-      all_sales.push({ ...val, product_name: product.product_name });
+      all_sales.push({
+        ...val,
+        product_name: product.product_name,
+        product_price: product.product_price,
+      });
     });
   });
   console.log("These are sales", all_sales);
   for (let i = 0; i <= to_period; i++) {
-    const s = all_sales.filter((p) => {
-      const s_time = getTime(p, graphPeriod);
-      return s_time[0] === i;
+    const s = all_sales.filter((sale) => {
+      const sale_time = getTime(sale, graphPeriod);
+      const now = new Date();
+      const compNow = [
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate(),
+        now.getHours(),
+      ].slice(0, sale_time[1].length);
+
+      const saleTimeComp = ["year", "day", "hour"].includes(graphPeriod)
+        ? sale_time[0] === i && sale_time[1].toString() === compNow.toString()
+        : sale_time[0] === i + 1 &&
+          sale_time[1].toString() === compNow.toString();
+      return saleTimeComp;
     });
-    source_data.push([
-      `${graphPeriod === "year" ? valueMap["year"][i] : i}`,
-      s.length,
-    ]);
+    source_data.push([`${getTimeLable(i, graphPeriod)}`, getTotalIncome(s)]);
   }
 
   const options = {
@@ -75,6 +121,7 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
     },
     xAxis: {
       type: "category",
+      name: "Time",
       axisLine: {
         lineStyle: {
           color: "#8791af",
@@ -83,6 +130,7 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
     },
     yAxis: {
       type: "value",
+      name: "Income",
       axisLine: {
         lineStyle: {
           color: "#8791af",
@@ -98,6 +146,7 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
       {
         type: "line",
         smooth: false,
+        name: "Revenue in ETB",
         encode: {
           x: source_data[0][0],
           y: source_data[0][1],

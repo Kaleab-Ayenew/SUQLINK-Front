@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Line from "./LineGraph";
 import RevenueCard from "./CardCollection";
 import TableComp from "./TableComp";
+import SaleRankTable from "./SaleRankTable";
 import BadgesComp from "./BadgesComp";
 import { Badge } from "reactstrap";
 import DeleteModal from "../../components/Common/DeleteModal";
@@ -18,8 +19,8 @@ function SellerDash(props) {
   const [cardData, setCardData] = React.useState({});
   const [graphPeriod, setGraphPeriod] = React.useState("day");
   let all_sales = [];
-  statData.product_stats.forEach((key, product) => {
-    product.product_sales.forEach((key, val) => {
+  statData.product_stats.forEach((product) => {
+    product.product_sales.forEach((val) => {
       all_sales.push(val);
     });
   });
@@ -40,10 +41,10 @@ function SellerDash(props) {
   }, []);
 
   const graphPeriodMap = {
-    hour: ["Hourly", "hour"],
-    day: ["Daily", "day"],
-    month: ["Monthly", "month"],
-    year: ["Yearly", "year"],
+    hour: ["Current Hour", "hour"],
+    day: ["Current Day", "day"],
+    month: ["Current Month", "month"],
+    year: ["Current Year", "year"],
   };
 
   return (
@@ -59,7 +60,7 @@ function SellerDash(props) {
               <CardBody>
                 <div className="d-sm-flex flex-wrap">
                   <CardTitle>
-                    {graphPeriodMap[graphPeriod][0]} Sales Data
+                    Revenue Data for {graphPeriodMap[graphPeriod][0]}
                   </CardTitle>
                   <div className="ms-auto">
                     <ul className="nav nav-pills">
@@ -96,6 +97,7 @@ function SellerDash(props) {
           </Col>
         </Row>
         <RevenueCard statData={statData} graphPeriod={graphPeriod} />
+        <SaleRankTable statData={statData} />
         <TableComp statData={statData} />
       </Container>
     </div>

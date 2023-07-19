@@ -11,41 +11,36 @@ import {
   Badge,
 } from "reactstrap";
 
-function TableComp(props) {
+import { PaymentStatus } from "./BillingStuff";
+
+function SaleRankTable(props) {
   const stdata = props.statData;
   const tableNames = {
-    sale_timestamp: "Sale Time",
-    completed: "Payment Status",
-    sold_product: "Product Link",
     product_name: "Product Name",
-    product_price: "Product Price ( We take 20% fee )",
+    product_total_sales: "Total Product Sales",
+    product_total_income: "Total Product Sale Income (ETB)",
   };
-  let all_sales = [];
+  let sales_rank_data = [];
   stdata.product_stats.forEach((product) => {
     product.product_sales.forEach((val) => {
-      all_sales.push({
+      sales_rank_data.push({
         product_name: product.product_name,
-        ...val,
-        completed: val.completed ? "Completed" : "Waiting",
-        product_price: product.product_price,
+        product_total_sales: product.product_sales.length,
+        product_total_income:
+          product.product_sales.length *
+          parseFloat(product.product_price) *
+          0.8,
       });
     });
   });
-  const data = all_sales.map((s) => {
-    const t = new Date(s.sale_timestamp);
-    const newObj = {
-      ...s,
-      sale_timestamp: t.toLocaleDateString(),
-    };
-    return newObj;
-  });
+  const data = sales_rank_data;
 
   return (
     <Row>
       <Col>
         <Card>
           <CardBody>
-            <CardTitle className="h4">All Product Sales</CardTitle>
+            <CardTitle className="h4">Product Sale Ranks</CardTitle>
             {/* <CardSubtitle className="card-title-desc">
               
             </CardSubtitle> */}
@@ -76,4 +71,4 @@ function TableComp(props) {
   );
 }
 
-export default TableComp;
+export default SaleRankTable;
