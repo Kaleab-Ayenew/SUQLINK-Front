@@ -3,6 +3,9 @@ import toastr from "toastr";
 export async function getBankList() {
   const rq_url = `${CORE_BACKEND_URL}/suqlink/bank-list/`;
   const authData = JSON.parse(localStorage.getItem("authUser"));
+  if (!authData) {
+    return {};
+  }
   const banks = await fetch(rq_url, {
     method: "GET",
     headers: {
