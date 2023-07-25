@@ -66,7 +66,7 @@ const Register = (props) => {
       .catch((err) => {
         setLoading(false);
         console.log(err);
-        setError(err.message);
+        setRegistrationError(err.message);
       });
   }
 
