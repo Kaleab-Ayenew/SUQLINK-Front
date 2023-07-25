@@ -1,4 +1,5 @@
 import React from "react";
+import { round } from "lodash";
 import {
   Container,
   Row,
@@ -16,7 +17,7 @@ function TableComp(props) {
   const tableNames = {
     sale_timestamp: "Sale Time",
     completed: "Payment Status",
-    sold_product: "Product Link",
+    sold_product: "Product ID",
     product_name: "Product Name",
     product_price: "Product Price ( We take 20% fee )",
   };

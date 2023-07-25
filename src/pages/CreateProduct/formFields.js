@@ -7,7 +7,7 @@ export const formFields = [
   },
   {
     type: "file",
-    title: "Product Image ( Thumbnail )",
+    title: "Product Image ( JPG or PNG )",
     id: "product-image",
     name: "product_thumbnail",
     accept: "image/png,image/jpeg",
@@ -21,14 +21,19 @@ export const formFields = [
   },
   {
     type: "file",
-    title: "Product File ( .zip files only )",
+    title: "Product File ( .zip files less than 50MB )",
     id: "product-file",
     name: "product_file",
     accept: "application/zip",
   },
   {
+    type: "text",
+    title: "Product Short Description",
+    name: "product_short_description",
+  },
+  {
     type: "textarea",
-    title: "Product Description",
+    title: "Product Detailed Description",
     name: "product_description",
   },
 ];

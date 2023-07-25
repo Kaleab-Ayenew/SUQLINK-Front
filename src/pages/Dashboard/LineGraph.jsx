@@ -1,6 +1,7 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
 import getChartColorsArray from "../../components/Common/ChartsDynamicColor";
+import { round } from "lodash";
 
 const Line = ({ dataColors, statData, graphPeriod }) => {
   const lineEChartColors = getChartColorsArray(dataColors);
@@ -76,7 +77,7 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
   function getTotalIncome(sales) {
     let sum = 0;
     sales.forEach((item) => (sum = sum + parseFloat(item.product_price)));
-    return sum * 0.8;
+    return round(sum * 0.8, 2);
   }
 
   const to_period = graphPeriodMap[graphPeriod];

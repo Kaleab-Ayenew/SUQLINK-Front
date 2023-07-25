@@ -145,27 +145,26 @@ const SidebarContent = (props) => {
         <div id="sidebar-menu">
           <ul className="metismenu list-unstyled" id="side-menu">
             {/* Product Admin Menu */}
-            <li className="menu-title">Social Media Manager</li>
+            <li className="menu-title">Suqlink Dashboard</li>
             <li>
-              <Link className="has-arrow" to="#">
-                <i class="bx bx-share-alt"></i>
-                <span>{props.t("Manage Accounts")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/create-post">
-                    <i class="fas fa-cart-plus"></i>
-                    <span>{props.t("Create a Post")}</span>
-                  </Link>
-                </li>
-
-                <li>
-                  <Link to="/connect-accounts">
-                    <i class="fas fa-cart-plus"></i>
-                    <span>{props.t("Connect Accounts")}</span>
-                  </Link>
-                </li>
-              </ul>
+              <li>
+                <Link to="/dashboard">
+                  <i class="bx bx-home-circle"></i>
+                  <span>{props.t("Dashboard")}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/create">
+                  <i class="bx bx-folder-plus"></i>
+                  <span>{props.t("Add New Product")}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/withdraw">
+                  <i class="bx bx-money"></i>
+                  <span>{props.t("Withdraw your Money")}</span>
+                </Link>
+              </li>
             </li>
           </ul>
         </div>

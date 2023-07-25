@@ -1,4 +1,6 @@
 import React from "react";
+import { round } from "lodash";
+import { Link } from "react-router-dom";
 import {
   Container,
   Row,
@@ -19,18 +21,24 @@ function SaleRankTable(props) {
     product_name: "Product Name",
     product_total_sales: "Total Product Sales",
     product_total_income: "Total Product Sale Income (ETB)",
+    edit_link: "Edit Product",
+    product_link: "Product Link",
   };
   let sales_rank_data = [];
   stdata.product_stats.forEach((product) => {
-    product.product_sales.forEach((val) => {
-      sales_rank_data.push({
-        product_name: product.product_name,
-        product_total_sales: product.product_sales.length,
-        product_total_income:
-          product.product_sales.length *
-          parseFloat(product.product_price) *
-          0.8,
-      });
+    sales_rank_data.push({
+      product_name: product.product_name,
+      product_total_sales: product.product_sales.length,
+      product_total_income: round(
+        product.product_sales.length * parseFloat(product.product_price) * 0.8,
+        2
+      ),
+      edit_link: [
+        <Link to={"/edit/" + product.product_sales[0].sold_product}>
+          edit product info
+        </Link>,
+      ],
+      product_link: `https://p.suqlink.com/p/${product.product_sales[0].sold_product}`,
     });
   });
   const data = sales_rank_data;
@@ -54,9 +62,9 @@ function SaleRankTable(props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((order) => (
+                  {data.map((sale) => (
                     <tr>
-                      {Object.values(order).map((val, index) => {
+                      {Object.values(sale).map((val, index) => {
                         return <td>{val}</td>;
                       })}
                     </tr>

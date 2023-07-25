@@ -92,6 +92,7 @@ const CreateProduct = (props) => {
     let f = new FormData(e.target);
     for (const [name, value] of Object.entries(editorState)) {
       f.append(name, value);
+    
     }
     var object = {};
     f.forEach((value, key) => (object[key] = value));

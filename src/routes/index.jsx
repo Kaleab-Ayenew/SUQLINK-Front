@@ -11,11 +11,14 @@ import MyEmailVerification from "../pages/Authentication/MyEmailVerification";
 
 import SellerDash from "../pages/Dashboard";
 import CreateProduct from "../pages/CreateProduct";
+import Withdraw from "../pages/withdraw-page";
+
 const authProtectedRoutes = [
   { path: "/dashboard", component: <SellerDash /> },
   { path: "/", component: <Navigate to="/dashboard" /> },
   { path: "/create", component: <CreateProduct /> },
   { path: "/edit/:product_id", component: <CreateProduct edit={true} /> },
+  { path: "/withdraw", component: <Withdraw /> },
 ];
 
 const publicRoutes = [
