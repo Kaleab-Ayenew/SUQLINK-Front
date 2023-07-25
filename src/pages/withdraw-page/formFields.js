@@ -1,14 +1,6 @@
 import { getBankList } from "./utils";
+import { bankOptions } from "./data";
 
-const bankList = await getBankList();
-const filteredBanks = bankList.data.filter((item) => {
-  return !item.is_mobilemoney;
-});
-let bankOptions = {};
-filteredBanks.forEach((item) => {
-  bankOptions[item.name] = item;
-});
-console.log(bankOptions);
 export default bankOptions;
 export const formFields = [
   {
