@@ -34,11 +34,9 @@ function SaleRankTable(props) {
         2
       ),
       edit_link: [
-        <Link to={"/edit/" + product.product_sales[0].sold_product}>
-          edit product info
-        </Link>,
+        <Link to={"/edit/" + product.product_id}>edit product info</Link>,
       ],
-      product_link: `https://p.suqlink.com/p/${product.product_sales[0].sold_product}`,
+      product_link: `https://p.suqlink.com/p/${product.product_id}`,
     });
   });
   const data = sales_rank_data;
