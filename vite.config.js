@@ -8,8 +8,6 @@ export default defineConfig({
   esbuild: {
     jsxFactory: "h",
     jsxFragment: "Fragment",
-  },
-  esbuild: {
     supported: {
       "top-level-await": true, //browsers can handle top-level-await features
     },
