@@ -42,7 +42,7 @@ function MyLogin(props) {
         if (rsp.ok) {
           rsp.json().then((data) => {
             localStorage.setItem("authUser", JSON.stringify(data));
-            navigate("/create-post");
+            navigate("/dashboard");
           });
         } else {
           rsp.json().then((data) => {
