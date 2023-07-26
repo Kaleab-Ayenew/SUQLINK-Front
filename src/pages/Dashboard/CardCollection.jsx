@@ -13,7 +13,7 @@ function RevenueCard(props) {
       iconClass: "bx bx-euro",
     },
     {
-      title: `Total Income`,
+      title: `Total Income (ETB)`,
       description: props.statData.total_income || "0",
       iconClass: "bx bx-euro",
     },
