@@ -23,11 +23,13 @@ function SaleRankTable(props) {
     product_total_income: "Total Product Sale Income (ETB)",
     edit_link: "Edit Product",
     product_link: "Product Link",
+    product_price: "Product Price",
   };
   let sales_rank_data = [];
   stdata.product_stats.forEach((product) => {
     sales_rank_data.push({
       product_name: product.product_name,
+      product_price: product.product_price,
       product_total_sales: product.product_sales.length,
       product_total_income: round(
         product.product_sales.length * parseFloat(product.product_price) * 0.8,

@@ -4,7 +4,7 @@ import { Container, Row, Col, Card, CardBody, CardTitle } from "reactstrap";
 function RevenueCard(props) {
   const data = [
     {
-      title: `Total Sales`,
+      title: `Total Completed Sales`,
       description:
         props.statData.total_sales !== null ||
         props.statData.total_sales !== undefined
