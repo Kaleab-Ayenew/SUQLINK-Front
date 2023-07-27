@@ -26,8 +26,10 @@ const ProfileMenu = (props) => {
 
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
-      const uname = JSON.parse(localStorage.getItem("authuser"));
-      setusername(uname);
+      const udata = JSON.parse(localStorage.getItem("authUser"));
+      console.log("Some advanced shit", udata);
+      setusername(udata.email);
+      console.log(username);
     }
   }, [props.success]);
 
@@ -43,21 +45,9 @@ const ProfileMenu = (props) => {
           id="page-header-user-dropdown"
           tag="button"
         >
-          <img
-            className="rounded-circle header-profile-user"
-            src={user1}
-            alt="Header Avatar"
-          />
-          <span className="d-none d-xl-inline-block ms-2 me-1">{username}</span>
-          <i className="mdi mdi-chevron-down d-none d-xl-inline-block" />
+          <span className="d-xl-inline-block ms-2 me-1">Manage {username}</span>
         </DropdownToggle>
         <DropdownMenu className="dropdown-menu-end">
-          <DropdownItem tag="a" href="#">
-            <span className="badge bg-success float-end">11</span>
-            <i className="bx bx-wrench font-size-16 align-middle me-1" />
-            {props.t("Settings")}
-          </DropdownItem>
-          <div className="dropdown-divider" />
           <Link to="/logout" className="dropdown-item">
             <i className="bx bx-power-off font-size-16 align-middle me-1 text-danger" />
             <span>{props.t("Logout")}</span>
