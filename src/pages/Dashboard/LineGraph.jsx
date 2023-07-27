@@ -85,11 +85,13 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
   let all_sales = [];
   statData.product_stats.forEach((product) => {
     product.product_sales.forEach((val) => {
-      all_sales.push({
-        ...val,
-        product_name: product.product_name,
-        product_price: product.product_price,
-      });
+      if (val.completed) {
+        all_sales.push({
+          ...val,
+          product_name: product.product_name,
+          product_price: product.product_price,
+        });
+      }
     });
   });
   console.log("These are sales", all_sales);

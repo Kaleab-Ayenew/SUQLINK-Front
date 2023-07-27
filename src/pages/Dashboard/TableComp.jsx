@@ -27,7 +27,7 @@ function TableComp(props) {
       all_sales.push({
         product_name: product.product_name,
         ...val,
-        completed: val.completed ? "Completed" : "Waiting",
+        completed: val.completed ? "Completed" : "Waiting/Failed",
         product_price: product.product_price,
       });
     });
