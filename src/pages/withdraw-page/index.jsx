@@ -60,6 +60,11 @@ const Withdraw = (props) => {
         }
       })
       .then((data) => {
+        setLoading(false);
+        toastr.success(
+          "Withrawal request sent successfully. It may take upto 10 minutes to complete, please wait patiently.",
+          "Success"
+        );
         console.log(data);
       })
       .catch((err) => {
@@ -76,7 +81,7 @@ const Withdraw = (props) => {
             <Col>
               <Card>
                 <CardBody>
-                  <CardTitle>Withdraw Your Money to Bank Account</CardTitle>
+                  <CardTitle>Withdraw Your Money to Bank Account - </CardTitle>
                   <Form onSubmit={handleSubmit}>
                     <EditorContext.Provider
                       value={[
