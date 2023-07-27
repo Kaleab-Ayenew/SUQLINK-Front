@@ -1,19 +1,7 @@
 import React from "react";
 import { round } from "lodash";
 import { Link } from "react-router-dom";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Table,
-  Badge,
-} from "reactstrap";
-
-import { PaymentStatus } from "./BillingStuff";
+import { Row, Col, Card, CardBody, CardTitle, Table } from "reactstrap";
 
 function SaleRankTable(props) {
   const stdata = props.statData;
@@ -27,12 +15,15 @@ function SaleRankTable(props) {
   };
   let sales_rank_data = [];
   stdata.product_stats.forEach((product) => {
+    let completed_sales = product.product_sales.filter((item) => {
+      return item.completed === true;
+    });
     sales_rank_data.push({
       product_name: product.product_name,
       product_price: product.product_price,
-      product_total_sales: product.product_sales.length,
+      product_total_sales: completed_sales.length,
       product_total_income: round(
-        product.product_sales.length * parseFloat(product.product_price) * 0.8,
+        completed_sales.length * parseFloat(product.product_price) * 0.8,
         2
       ),
       edit_link: [
@@ -48,7 +39,7 @@ function SaleRankTable(props) {
       <Col>
         <Card>
           <CardBody>
-            <CardTitle className="h4">Product Sale Ranks</CardTitle>
+            <CardTitle className="h4">All Products</CardTitle>
             {/* <CardSubtitle className="card-title-desc">
               
             </CardSubtitle> */}

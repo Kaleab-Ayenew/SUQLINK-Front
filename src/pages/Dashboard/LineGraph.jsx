@@ -110,7 +110,7 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
         ? sale_time[0] === i && sale_time[1].toString() === compNow.toString()
         : sale_time[0] === i + 1 &&
           sale_time[1].toString() === compNow.toString();
-      return saleTimeComp;
+      return saleTimeComp && sale.completed === true;
     });
     source_data.push([`${getTimeLable(i, graphPeriod)}`, getTotalIncome(s)]);
   }

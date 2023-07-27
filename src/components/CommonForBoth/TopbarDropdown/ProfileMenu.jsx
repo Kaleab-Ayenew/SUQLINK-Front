@@ -28,7 +28,7 @@ const ProfileMenu = (props) => {
     if (localStorage.getItem("authUser")) {
       const udata = JSON.parse(localStorage.getItem("authUser"));
       console.log("Some advanced shit", udata);
-      setusername(udata.email);
+      setusername(udata.username);
       console.log(username);
     }
   }, [props.success]);
