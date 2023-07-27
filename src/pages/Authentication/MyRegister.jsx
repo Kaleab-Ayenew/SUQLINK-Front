@@ -176,8 +176,7 @@ const Register = (props) => {
                 </p>
                 <p>
                   © {new Date().getFullYear()} SUQLINK.COM Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Black Storm
-                  Technologies
+                  <i className="mdi mdi-heart text-danger" />
                 </p>
               </div>
             </Col>

@@ -159,8 +159,7 @@ const MyEmailVerification = (props) => {
                 </p>
                 <p>
                   © {new Date().getFullYear()} SUQLINK. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger"></i> by Black Storm
-                  Technologies
+                  <i className="mdi mdi-heart text-danger"></i>
                 </p>
               </div>
             </Col>

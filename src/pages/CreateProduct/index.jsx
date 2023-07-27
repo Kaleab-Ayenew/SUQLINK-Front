@@ -92,7 +92,6 @@ const CreateProduct = (props) => {
     let f = new FormData(e.target);
     for (const [name, value] of Object.entries(editorState)) {
       f.append(name, value);
-    
     }
     var object = {};
     f.forEach((value, key) => (object[key] = value));
@@ -131,6 +130,7 @@ const CreateProduct = (props) => {
       })
       .then((data) => {
         console.log(data, "This is the rsp data");
+        navigate("/dashboard");
       })
       .catch((err) => {
         console.error(err);

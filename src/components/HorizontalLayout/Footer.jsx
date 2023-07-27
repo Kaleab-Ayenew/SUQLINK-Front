@@ -7,13 +7,9 @@ const Footer = () => {
       <footer className="footer">
         <Container fluid={true}>
           <Row>
+            <Col md={6}>{new Date().getFullYear()} © SUQLINK.COM</Col>
             <Col md={6}>
-              {new Date().getFullYear()} © Black Storm Technologies
-            </Col>
-            <Col md={6}>
-              <div className="text-sm-end d-none d-sm-block">
-                Developed by Black Storm Technologies
-              </div>
+              <div className="text-sm-end d-none d-sm-block">SUQLINK</div>
             </Col>
           </Row>
         </Container>

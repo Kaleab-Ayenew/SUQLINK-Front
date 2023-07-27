@@ -8,7 +8,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 const {page_name} = () => {{
 
     //meta title
-    document.title="{page_name} page | Black Storm Admin Dashboard";
+    document.title="{page_name} page | Suqlink Admin Dashboard";
 
   return (
     <React.Fragment>

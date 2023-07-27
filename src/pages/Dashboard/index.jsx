@@ -13,7 +13,7 @@ import DeleteModal from "../../components/Common/DeleteModal";
 import { CORE_BACKEND_URL } from "../../helpers/url_helper";
 
 function SellerDash(props) {
-  document.title = "Product Dashboard | Balck Storm Admin Dashboard";
+  document.title = "Product Dashboard | Suqlink Admin Dashboard";
 
   const [statData, setStatData] = React.useState({ product_stats: [] });
   const [cardData, setCardData] = React.useState({});
