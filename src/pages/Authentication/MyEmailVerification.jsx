@@ -29,6 +29,7 @@ const MyEmailVerification = (props) => {
 
   const [loading, setLoading] = React.useState(false);
   const regCode = getRegCode();
+  const regEmail = getRegMail();
   const [error, setError] = React.useState("");
 
   const navigate = useNavigate();
@@ -64,6 +65,12 @@ const MyEmailVerification = (props) => {
         console.log(err);
         setError(err.message);
       });
+  }
+
+  function getRegMail() {
+    const regData = localStorage.getItem("regInfo");
+    const email = JSON.parase(regData).seller_email;
+    return email;
   }
 
   function getRegCode() {
@@ -113,10 +120,8 @@ const MyEmailVerification = (props) => {
                         <h4>Verify your email</h4>
                         <p>
                           We have sent a verification code at{" "}
-                          <span className="fw-semibold">
-                            kalishayish16@gmail.com
-                          </span>
-                          , Please check it
+                          <span className="fw-semibold">{regEmail}</span>,
+                          Please check it
                         </p>
                         <Form onSubmit={handleSubmit}>
                           <div className="mb-3">
