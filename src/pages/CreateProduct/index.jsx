@@ -240,7 +240,7 @@ const CreateProduct = (props) => {
                 <CardBody>
                   <CardTitle className="h4">
                     {!props.edit
-                      ? "Create a new Product for Your Store"
+                      ? "Create a new Product"
                       : `Edit "${editProductData.product_name}"`}
                   </CardTitle>
                   <p className="card-title-desc">
