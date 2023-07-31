@@ -69,7 +69,7 @@ const MyEmailVerification = (props) => {
 
   function getRegMail() {
     const regData = localStorage.getItem("regInfo");
-    const email = JSON.parase(regData).seller_email;
+    const email = JSON.parse(regData).seller_email;
     return email;
   }
 
