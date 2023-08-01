@@ -16,7 +16,7 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
 
   function getTime(sale, t) {
     const stime = new Date(sale.sale_timestamp);
-    console.log(stime, "This is the time");
+    
     switch (t) {
       case "hour":
         return [
@@ -94,7 +94,7 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
       }
     });
   });
-  console.log("These are sales", all_sales);
+  
   for (let i = 0; i <= to_period; i++) {
     const s = all_sales.filter((sale) => {
       const sale_time = getTime(sale, graphPeriod);

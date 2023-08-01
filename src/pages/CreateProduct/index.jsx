@@ -96,7 +96,7 @@ const CreateProduct = (props) => {
     var object = {};
     f.forEach((value, key) => (object[key] = value));
     var json = JSON.stringify(object);
-    console.log(json);
+    
     setLoading(true);
     fetch(`${CORE_BACKEND_URL}/suqlink/products/new/`, {
       method: "POST",
@@ -129,7 +129,7 @@ const CreateProduct = (props) => {
         }
       })
       .then((data) => {
-        console.log(data, "This is the rsp data");
+        
         navigate("/dashboard");
       })
       .catch((err) => {
@@ -148,13 +148,13 @@ const CreateProduct = (props) => {
     var object = {};
     // f.forEach((value, key) => (object[key] = value));
     f.forEach((value, key) => {
-      console.log(value, key);
+      
       if (value.type === "application/octet-stream" && value.size === 0) {
         f.delete(key);
       }
     });
     var json = JSON.stringify(object);
-    console.log("How do I do that?", json);
+    
 
     const productId = props.router.params.product_id;
     setLoading(true);
@@ -183,7 +183,7 @@ const CreateProduct = (props) => {
       })
       .then((data) => {
         setEditProductData(data);
-        console.log(data);
+        
         setLoading(false);
         toastr.success(
           "Product information has been updated successfully!",
@@ -210,11 +210,11 @@ const CreateProduct = (props) => {
       })
         .then((rsp) => rsp.json())
         .then((data) => {
-          console.log(data);
+          
           setFormFieldData((old) => {
             setEditProductData(data);
             const newVal = old.map((item) => {
-              console.log(item);
+              
               return { ...item, default: data[item.name] };
             });
             return newVal;
@@ -222,7 +222,7 @@ const CreateProduct = (props) => {
         });
     } else {
       setFormFieldData(formFields);
-      console.log("The Form Should be Clean now");
+      
     }
   }, []);
 

@@ -46,7 +46,7 @@ function MyLogin(props) {
           });
         } else {
           rsp.json().then((data) => {
-            console.log(data);
+            
             const errMsg = [];
             Object.keys(data).forEach((k) => errMsg.push(`${k}:\n${data[k]}`));
             const errTxt = errMsg.join("\n *** \n");

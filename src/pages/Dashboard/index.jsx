@@ -35,7 +35,7 @@ function SellerDash(props) {
     })
       .then((rsp) => rsp.json())
       .then((data) => {
-        console.log("Stat data", data);
+        
         setStatData(data);
       });
   }, []);

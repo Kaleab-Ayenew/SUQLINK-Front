@@ -113,9 +113,9 @@ export function TextAreaField(props) {
   const formFieldData = props.formFieldData;
 
   React.useLayoutEffect(() => {
-    console.log(formFieldData, "This is formFieldData");
+    
     if (props.default) {
-      console.log("From CKEditor,", props.default);
+      
       setEditorState((old) => ({ ...old, [props.name]: props.default }));
     }
   }, [formFieldData]);
@@ -130,7 +130,7 @@ export function TextAreaField(props) {
         }}
         onChange={(event, editor) => {
           const data = editor.getData();
-          console.log(data);
+          
           setEditorState((old) => ({ ...old, [props.name]: data }));
         }}
       />

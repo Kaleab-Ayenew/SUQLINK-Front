@@ -64,7 +64,7 @@ const Register = (props) => {
         rsp.json().then((data) => {
           if (rsp.ok) {
             setUserData(data);
-            console.log(data);
+            
             navigate("/");
           } else {
             console.error(data);

@@ -25,15 +25,28 @@ const Withdraw = (props) => {
   const [formFieldData, setFormFieldData] = React.useState(formFields);
   const [editorState, setEditorState] = React.useState({});
   const [loading, setLoading] = React.useState(false);
+  const [statData, setStatData] = React.useState(null);
+
+  React.useLayoutEffect(() => {
+    fetch(`${CORE_BACKEND_URL}/suqlink/stats/`, {
+      headers: {
+        Authorization: `Token ${
+          JSON.parse(localStorage.getItem("authUser")).token
+        }`,
+      },
+    })
+      .then((rsp) => rsp.json())
+      .then((data) => {
+        setStatData(data);
+      });
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
     let f = new FormData(e.target);
 
     f.set("chapa_bank", bankOptions[f.get("chapa_bank")].id);
-    for (var [key, value] of f.entries()) {
-      console.log(key, value);
-    }
+
     setLoading(true);
     fetch(`${CORE_BACKEND_URL}/suqlink/payment/withdraw/`, {
       method: "POST",
@@ -65,7 +78,6 @@ const Withdraw = (props) => {
           "Withrawal request sent successfully. It may take upto 10 minutes to complete, please wait patiently.",
           "Success"
         );
-        console.log(data);
       })
       .catch((err) => {
         toastr.error(err, "Error");
@@ -81,7 +93,10 @@ const Withdraw = (props) => {
             <Col>
               <Card>
                 <CardBody>
-                  <CardTitle>Withdraw Your Money to Bank Account - </CardTitle>
+                  <CardTitle>
+                    Withdraw Your Money to Bank Account -{" "}
+                    {statData && `${statData.total_income} ETB available`}
+                  </CardTitle>
                   <Form onSubmit={handleSubmit}>
                     <EditorContext.Provider
                       value={[

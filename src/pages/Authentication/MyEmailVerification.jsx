@@ -50,7 +50,7 @@ const MyEmailVerification = (props) => {
           });
         } else if (rsp.status === 401 || rsp.status === 400) {
           rsp.json().then((data) => {
-            console.log(data);
+            
             const errMsg = [];
             Object.keys(data).forEach((k) => errMsg.push(`${k}:\n${data[k]}`));
             const errTxt = errMsg.join("\n *** \n");
