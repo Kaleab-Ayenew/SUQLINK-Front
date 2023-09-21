@@ -19,7 +19,7 @@ function TableComp(props) {
     completed: "Payment Status",
     sold_product: "Product ID",
     product_name: "Product Name",
-    product_price: "Product Price ( We take 20% fee )",
+    sale_price: "Sell Price ( We take 20% fee )",
   };
   let all_sales = [];
   stdata.product_stats.forEach((product) => {
@@ -28,7 +28,6 @@ function TableComp(props) {
         product_name: product.product_name,
         ...val,
         completed: val.completed ? "Completed" : "Waiting/Failed",
-        product_price: product.product_price,
       });
     });
   });

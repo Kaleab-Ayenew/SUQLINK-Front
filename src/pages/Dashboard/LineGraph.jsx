@@ -16,7 +16,7 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
 
   function getTime(sale, t) {
     const stime = new Date(sale.sale_timestamp);
-    
+
     switch (t) {
       case "hour":
         return [
@@ -76,7 +76,7 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
 
   function getTotalIncome(sales) {
     let sum = 0;
-    sales.forEach((item) => (sum = sum + parseFloat(item.product_price)));
+    sales.forEach((item) => (sum = sum + parseFloat(item.sale_price)));
     return round(sum * 0.8, 2);
   }
 
@@ -89,12 +89,11 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
         all_sales.push({
           ...val,
           product_name: product.product_name,
-          product_price: product.product_price,
         });
       }
     });
   });
-  
+
   for (let i = 0; i <= to_period; i++) {
     const s = all_sales.filter((sale) => {
       const sale_time = getTime(sale, graphPeriod);
