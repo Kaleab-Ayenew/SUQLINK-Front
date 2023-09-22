@@ -41,7 +41,7 @@ const Layout = (props) => {
     let currentage = title.charAt(1).toUpperCase() + title.slice(2);
 
     document.title =
-      currentage + " | BlackStorm - Vite React Admin & Dashboard Template";
+      currentage + " | Suqlink - Sell Your Digital Creations with Ease";
   }, [pathName.pathname]);
 
   useEffect(() => {

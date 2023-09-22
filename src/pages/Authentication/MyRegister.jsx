@@ -25,8 +25,7 @@ import { CORE_BACKEND_URL } from "../../helpers/url_helper";
 import { useNavigate } from "react-router-dom";
 
 const Register = (props) => {
-  document.title =
-    "Register | BlackStorm - Vite React Admin & Dashboard Template";
+  document.title = "Suqlink | Create an Account";
 
   const navigate = useNavigate();
 
@@ -55,7 +54,6 @@ const Register = (props) => {
           });
         } else {
           rsp.json().then((data) => {
-            
             const errMsg = [];
             Object.keys(data).forEach((k) => errMsg.push(`${k}:\n${data[k]}`));
             const errTxt = errMsg.join("\n *** \n");

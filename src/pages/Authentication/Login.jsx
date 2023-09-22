@@ -32,7 +32,7 @@ import logo from "../../assets/images/logo.svg";
 
 const Login = (props) => {
   //meta title
-  document.title = "Login | BlackStorm - Vite React Admin & Dashboard Template";
+  document.title = "Login | | Suqlink - Sell Your Digital Creations with Ease";
   const dispatch = useDispatch();
 
   const validation = useFormik({

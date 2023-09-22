@@ -34,7 +34,7 @@ import { useNavigate } from "react-router-dom";
 
 const Register = (props) => {
   document.title =
-    "Register | BlackStorm - Vite React Admin & Dashboard Template";
+    "Register | | Suqlink - Sell Your Digital Creations with Ease";
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ const Register = (props) => {
         rsp.json().then((data) => {
           if (rsp.ok) {
             setUserData(data);
-            
+
             navigate("/");
           } else {
             console.error(data);
