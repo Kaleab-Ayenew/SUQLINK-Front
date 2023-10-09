@@ -21,7 +21,7 @@ export const formFields = [
   },
   {
     type: "file",
-    title: "Product File ( .zip or .rar files less than 50MB )",
+    title: "Product File ( .zip or .rar files less than 500MB )",
     id: "product-file",
     name: "product_file",
     accept: "application/zip,application/vnd.rar,application/x-rar",
