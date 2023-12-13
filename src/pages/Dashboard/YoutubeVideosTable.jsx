@@ -29,7 +29,7 @@ function YvideosTable(props) {
       edit_link: [
         <Link to={"/video-edit/" + video.platform_id}>edit product info</Link>,
       ],
-      product_link: `https://suqlink-youtube-market.vercel.app/videos/${video.platform_id}`,
+      product_link: `https://yt.suqlink.com/videos/${video.platform_id}`,
     });
   });
   const data = sales_rank_data;
