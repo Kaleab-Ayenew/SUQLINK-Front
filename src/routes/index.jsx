@@ -12,6 +12,8 @@ import MyEmailVerification from "../pages/Authentication/MyEmailVerification";
 import SellerDash from "../pages/Dashboard";
 import CreateProduct from "../pages/CreateProduct";
 import Withdraw from "../pages/withdraw-page";
+import YoutubeSale from "../pages/YoutubePage";
+import CreateVideo from "../pages/YoutubePage/";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <SellerDash /> },
@@ -19,6 +21,8 @@ const authProtectedRoutes = [
   { path: "/create", component: <CreateProduct /> },
   { path: "/edit/:product_id", component: <CreateProduct edit={true} /> },
   { path: "/withdraw", component: <Withdraw /> },
+  { path: "/youtube", component: <CreateVideo /> },
+  { path: "/video-edit/:video_id", component: <CreateVideo edit={true} /> },
 ];
 
 const publicRoutes = [

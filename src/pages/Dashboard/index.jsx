@@ -11,17 +11,27 @@ import BadgesComp from "./BadgesComp";
 import { Badge } from "reactstrap";
 import DeleteModal from "../../components/Common/DeleteModal";
 import { CORE_BACKEND_URL } from "../../helpers/url_helper";
+import YoutubeSale from "../YoutubePage";
+import YvideosTable from "./YoutubeVideosTable";
 
 function SellerDash(props) {
   document.title = "Product Dashboard | Suqlink Admin Dashboard";
 
   const [statData, setStatData] = React.useState({ product_stats: [] });
+  const [videoStats, setVideoStats] = React.useState({ video_stats: [] });
   const [cardData, setCardData] = React.useState({});
   const [graphPeriod, setGraphPeriod] = React.useState("day");
   let all_sales = [];
+  let all_vid_sales = [];
   statData.product_stats.forEach((product) => {
     product.product_sales.forEach((val) => {
       all_sales.push(val);
+    });
+  });
+
+  videoStats.video_stats.forEach((video) => {
+    video.video_sales.forEach((val) => {
+      all_vid_sales.push(val);
     });
   });
 
@@ -35,8 +45,19 @@ function SellerDash(props) {
     })
       .then((rsp) => rsp.json())
       .then((data) => {
-        
         setStatData(data);
+      });
+
+    fetch(`${CORE_BACKEND_URL}/suqlink/yvideos/s/stats/`, {
+      headers: {
+        Authorization: `Token ${
+          JSON.parse(localStorage.getItem("authUser")).token
+        }`,
+      },
+    })
+      .then((rsp) => rsp.json())
+      .then((data) => {
+        setVideoStats(data);
       });
   }, []);
 
@@ -97,6 +118,7 @@ function SellerDash(props) {
           </Col>
         </Row>
         <RevenueCard statData={statData} graphPeriod={graphPeriod} />
+        <YvideosTable statData={videoStats} />
         <SaleRankTable statData={statData} />
         <TableComp statData={statData} />
       </Container>

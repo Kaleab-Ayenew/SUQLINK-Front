@@ -148,6 +148,12 @@ const SidebarContent = (props) => {
             <li className="menu-title">Suqlink Dashboard</li>
             <li>
               <li>
+                <Link to="/youtube">
+                  <i class="bx bxl-youtube"></i>
+                  <span>{props.t("Sell a Youtube Video")}</span>
+                </Link>
+              </li>
+              <li>
                 <Link to="/dashboard">
                   <i class="bx bx-home-circle"></i>
                   <span>{props.t("Dashboard")}</span>
