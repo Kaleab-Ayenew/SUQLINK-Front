@@ -22,8 +22,8 @@ function TableComp(props) {
     sale_price: "Sale Price ( We take 20% fee )",
   };
   let all_sales = [];
-  stdata.product_stats.forEach((product) => {
-    product.product_sales.forEach((val) => {
+  stdata?.product_stats?.forEach((product) => {
+    product?.product_sales?.forEach((val) => {
       all_sales.push({
         product_name: product.product_name,
         ...val,

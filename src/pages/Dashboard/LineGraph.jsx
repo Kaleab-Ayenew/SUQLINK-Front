@@ -76,15 +76,15 @@ const Line = ({ dataColors, statData, graphPeriod }) => {
 
   function getTotalIncome(sales) {
     let sum = 0;
-    sales.forEach((item) => (sum = sum + parseFloat(item.sale_price)));
+    sales?.forEach((item) => (sum = sum + parseFloat(item.sale_price)));
     return round(sum * 0.8, 2);
   }
 
   const to_period = graphPeriodMap[graphPeriod];
   let source_data = [["Time", "Revenue"]];
   let all_sales = [];
-  statData.product_stats.forEach((product) => {
-    product.product_sales.forEach((val) => {
+  statData?.product_stats?.forEach((product) => {
+    product?.product_sales?.forEach((val) => {
       if (val.completed) {
         all_sales.push({
           ...val,

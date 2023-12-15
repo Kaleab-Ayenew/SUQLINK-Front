@@ -14,8 +14,8 @@ function SaleRankTable(props) {
     product_price: "Product Price",
   };
   let sales_rank_data = [];
-  stdata.product_stats.forEach((product) => {
-    let completed_sales = product.product_sales.filter((item) => {
+  stdata?.product_stats?.forEach((product) => {
+    let completed_sales = product?.product_sales?.filter((item) => {
       return item.completed === true;
     });
     sales_rank_data.push({

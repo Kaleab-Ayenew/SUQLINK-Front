@@ -14,8 +14,8 @@ function YvideosTable(props) {
     product_price: "Video Price",
   };
   let sales_rank_data = [];
-  stdata.video_stats.forEach((video) => {
-    let completed_sales = video.video_sales.filter((item) => {
+  stdata?.video_stats?.forEach((video) => {
+    let completed_sales = video?.video_sales?.filter((item) => {
       return item.completed === true;
     });
     sales_rank_data.push({

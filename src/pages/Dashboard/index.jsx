@@ -23,14 +23,14 @@ function SellerDash(props) {
   const [graphPeriod, setGraphPeriod] = React.useState("day");
   let all_sales = [];
   let all_vid_sales = [];
-  statData.product_stats.forEach((product) => {
-    product.product_sales.forEach((val) => {
+  statData?.product_stats?.forEach((product) => {
+    product?.product_sales?.forEach((val) => {
       all_sales.push(val);
     });
   });
 
-  videoStats.video_stats.forEach((video) => {
-    video.video_sales.forEach((val) => {
+  videoStats?.video_stats?.forEach((video) => {
+    video?.video_sales?.forEach((val) => {
       all_vid_sales.push(val);
     });
   });
