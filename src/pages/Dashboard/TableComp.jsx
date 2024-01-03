@@ -19,7 +19,7 @@ function TableComp(props) {
     completed: "Payment Status",
     sold_product: "Product ID",
     product_name: "Product Name",
-    sale_price: "Sale Price ( We take 20% fee )",
+    sale_price: "Sale Price ( We take 5% fee )",
   };
   let all_sales = [];
   stdata?.product_stats?.forEach((product) => {
