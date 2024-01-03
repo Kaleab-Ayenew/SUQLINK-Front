@@ -1,5 +1,5 @@
 // CORE BACKEND URL
-export const CORE_BACKEND_URL = "https://ubuntu-vps.kal-dev.com"; // "http://127.0.0.1:8000"; //
+export const CORE_BACKEND_URL = "https://api.suqlink.com"; // "http://127.0.0.1:8000"; //
 // export const CORE_BACKEND_URL = "http://127.0.0.1:8000"; //
 
 //REGISTER
